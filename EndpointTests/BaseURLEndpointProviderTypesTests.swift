@@ -11,7 +11,7 @@
 import Endpoint
 import XCTest
 
-class ProviderTypeTests: XCTestCase
+class BaseURLEndpointProviderTypesTests: XCTestCase
 {
     func testMethodProvider()
     {
