@@ -40,6 +40,20 @@ public protocol URLProviderType
     var URL: NSURL? { get }
 }
 
+// MARK: - EndpointType Extensions
+extension EndpointType where Self: MethodProviderType, Self: URLProviderType
+{
+    // MARK: - MethodProviderType & URLProviderType
+    public var request: NSURLRequest?
+    {
+        return URL.flatMap({ URL in
+            let request = NSMutableURLRequest(URL: URL)
+            request.HTTPMethod = method
+            return request
+        })
+    }
+}
+
 // MARK: - BaseURLEndpointType Extensions
 extension BaseURLEndpointType where Self: MethodProviderType
 {

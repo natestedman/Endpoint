@@ -13,6 +13,7 @@
 		437287851C51875700D803DC /* AnyStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287841C51875700D803DC /* AnyStructures.swift */; };
 		437287871C5188EA00D803DC /* BaseURLEndpointProviderTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287861C5188EA00D803DC /* BaseURLEndpointProviderTypesTests.swift */; };
 		437287891C518BA400D803DC /* ProviderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287881C518BA400D803DC /* ProviderTypes.swift */; };
+		4372878B1C519E4900D803DC /* EndpointProviderTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4372878A1C519E4900D803DC /* EndpointProviderTypesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		437287841C51875700D803DC /* AnyStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyStructures.swift; sourceTree = "<group>"; };
 		437287861C5188EA00D803DC /* BaseURLEndpointProviderTypesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURLEndpointProviderTypesTests.swift; sourceTree = "<group>"; };
 		437287881C518BA400D803DC /* ProviderTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderTypes.swift; sourceTree = "<group>"; };
+		4372878A1C519E4900D803DC /* EndpointProviderTypesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointProviderTypesTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				437287861C5188EA00D803DC /* BaseURLEndpointProviderTypesTests.swift */,
+				4372878A1C519E4900D803DC /* EndpointProviderTypesTests.swift */,
 				437287571C51821100D803DC /* Info.plist */,
 			);
 			path = EndpointTests;
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4372878B1C519E4900D803DC /* EndpointProviderTypesTests.swift in Sources */,
 				437287871C5188EA00D803DC /* BaseURLEndpointProviderTypesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +400,7 @@
 				4372875C1C51821200D803DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4372875D1C51821200D803DC /* Build configuration list for PBXNativeTarget "Endpoint-OSXTests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +409,7 @@
 				4372875F1C51821200D803DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
