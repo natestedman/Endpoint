@@ -10,6 +10,10 @@
 		4372874A1C51821100D803DC /* Endpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 437287491C51821100D803DC /* Endpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		437287511C51821100D803DC /* Endpoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437287461C51821100D803DC /* Endpoint.framework */; };
 		437287561C51821100D803DC /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287551C51821100D803DC /* EndpointTests.swift */; };
+		437287611C51828700D803DC /* EndpointTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287601C51828700D803DC /* EndpointTypes.swift */; };
+		437287851C51875700D803DC /* AnyStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287841C51875700D803DC /* AnyStructures.swift */; };
+		437287871C5188EA00D803DC /* ProviderTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287861C5188EA00D803DC /* ProviderTypesTests.swift */; };
+		437287891C518BA400D803DC /* ProviderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287881C518BA400D803DC /* ProviderTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		437287501C51821100D803DC /* EndpointTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EndpointTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		437287551C51821100D803DC /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		437287571C51821100D803DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		437287601C51828700D803DC /* EndpointTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointTypes.swift; sourceTree = "<group>"; };
+		437287841C51875700D803DC /* AnyStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyStructures.swift; sourceTree = "<group>"; };
+		437287861C5188EA00D803DC /* ProviderTypesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderTypesTests.swift; sourceTree = "<group>"; };
+		437287881C518BA400D803DC /* ProviderTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				437287491C51821100D803DC /* Endpoint.h */,
+				437287841C51875700D803DC /* AnyStructures.swift */,
+				437287601C51828700D803DC /* EndpointTypes.swift */,
+				437287881C518BA400D803DC /* ProviderTypes.swift */,
 				4372874B1C51821100D803DC /* Info.plist */,
 			);
 			path = Endpoint;
@@ -81,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				437287551C51821100D803DC /* EndpointTests.swift */,
+				437287861C5188EA00D803DC /* ProviderTypesTests.swift */,
 				437287571C51821100D803DC /* Info.plist */,
 			);
 			path = EndpointTests;
@@ -194,6 +206,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				437287891C518BA400D803DC /* ProviderTypes.swift in Sources */,
+				437287851C51875700D803DC /* AnyStructures.swift in Sources */,
+				437287611C51828700D803DC /* EndpointTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				437287871C5188EA00D803DC /* ProviderTypesTests.swift in Sources */,
 				437287561C51821100D803DC /* EndpointTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
