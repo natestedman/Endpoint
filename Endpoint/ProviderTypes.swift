@@ -34,6 +34,23 @@ public protocol QueryItemsProviderType
 }
 
 // MARK: - BaseURLEndpointType Extensions
+extension BaseURLEndpointType where Self: MethodProviderType
+{
+    // MARK: - MethodProviderType
+
+    /**
+    A default implementation of `BaseURLEndpointType`'s requirement.
+
+    - parameter baseURL: The base URL.
+    */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        let request = NSMutableURLRequest(URL: baseURL)
+        request.HTTPMethod = method
+        return request
+    }
+}
+
 extension BaseURLEndpointType where Self: MethodProviderType, Self: RelativeURLStringProviderType
 {
     // MARK: - MethodProviderType & RelativeURLStringProviderType

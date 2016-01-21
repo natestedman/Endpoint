@@ -13,6 +13,19 @@ import XCTest
 
 class ProviderTypeTests: XCTestCase
 {
+    func testMethodProvider()
+    {
+        struct Provider: BaseURLEndpointType, MethodProviderType
+        {
+            let method = "POST"
+        }
+
+        let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/")!)
+        mutable.HTTPMethod = "POST"
+
+        XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
+    }
+
     func testRelativeURLStringProvider()
     {
         struct Provider: BaseURLEndpointType, MethodProviderType, RelativeURLStringProviderType
@@ -54,5 +67,23 @@ class ProviderTypeTests: XCTestCase
         mutable.HTTPMethod = "POST"
 
         XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
+    }
+
+    func testManualImplementation()
+    {
+        struct Provider: BaseURLEndpointType, MethodProviderType, RelativeURLStringProviderType, QueryItemsProviderType
+        {
+            let relativeURLString = "test"
+            let method = "POST"
+            let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
+
+            private func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+            {
+                return NSURLRequest(URL: NSURL(string: "http://different.com")!)
+            }
+        }
+
+        let expected = NSURLRequest(URL: NSURL(string: "http://different.com")!)
+        XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), expected)
     }
 }
