@@ -44,6 +44,8 @@ public protocol URLProviderType
 extension EndpointType where Self: MethodProviderType, Self: URLProviderType
 {
     // MARK: - MethodProviderType & URLProviderType
+
+    /// A default implementation, provided when conforming to `MethodProviderType` and `URLProviderType`.
     public var request: NSURLRequest?
     {
         return URL.flatMap({ URL in
