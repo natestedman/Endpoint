@@ -11,6 +11,8 @@
 import Foundation
 
 // MARK: - Endpoint
+
+/// An endpoint, which provides a URL request to load itself.
 public protocol EndpointType
 {
     // MARK: - Requests
@@ -20,6 +22,10 @@ public protocol EndpointType
 }
 
 // MARK: - Base URL
+
+/// A relative URL endpoint, which provides a URL request given a base URL.
+///
+/// This type can be used to implement switchable backends, e.g. production, staging, development.
 public protocol BaseURLEndpointType
 {
     // MARK: - Requests
@@ -34,6 +40,8 @@ public protocol BaseURLEndpointType
 
 extension BaseURLEndpointType
 {
+    // MARK: - Endpoint
+
     /**
      Creates an endpoint for the base URL endpoint, with the specified base URL.
 

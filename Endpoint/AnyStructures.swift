@@ -27,6 +27,8 @@ public struct AnyEndpoint
 
 extension AnyEndpoint
 {
+    // MARK: - Initialization
+
     /**
      Wraps the specified endpoint.
 
