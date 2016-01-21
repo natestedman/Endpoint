@@ -26,4 +26,19 @@ class EndpointProviderTypesTests: XCTestCase
 
         XCTAssertEqual(Provider().request, mutable)
     }
+
+    func testMethodProviderURLProviderAndQueryItemsProvider()
+    {
+        struct Provider: EndpointType, MethodProviderType, URLProviderType, QueryItemsProviderType
+        {
+            let method = "POST"
+            let URL = NSURL(string: "http://test.com/")
+            let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
+        }
+
+        let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/?foo=bar")!)
+        mutable.HTTPMethod = "POST"
+
+        XCTAssertEqual(Provider().request, mutable)
+    }
 }

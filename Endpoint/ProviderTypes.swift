@@ -56,6 +56,28 @@ extension EndpointType where Self: MethodProviderType, Self: URLProviderType
     }
 }
 
+extension EndpointType where Self: MethodProviderType, Self: URLProviderType, Self: QueryItemsProviderType
+{
+    /// A default implementation, provided when conforming to `MethodProviderType`, `URLProviderType`, and
+    /// `QueryItemsProviderType`.
+    public var request: NSURLRequest?
+    {
+        return URL
+            .flatMap({ URL in
+                NSURLComponents(URL: URL, resolvingAgainstBaseURL: true)
+            })
+            .flatMap({ components -> NSURL? in
+                components.queryItems = queryItems
+                return components.URL
+            })
+            .map({ URL in
+                let request = NSMutableURLRequest(URL: URL)
+                request.HTTPMethod = method
+                return request
+            })
+    }
+}
+
 // MARK: - BaseURLEndpointType Extensions
 extension BaseURLEndpointType where Self: MethodProviderType
 {
