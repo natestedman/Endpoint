@@ -33,6 +33,13 @@ public protocol QueryItemsProviderType
     var queryItems: [NSURLQueryItem] { get }
 }
 
+/// A type that provides a URL for a URL request.
+public protocol URLProviderType
+{
+    /// The URL.
+    var URL: NSURL? { get }
+}
+
 // MARK: - BaseURLEndpointType Extensions
 extension BaseURLEndpointType where Self: MethodProviderType
 {
