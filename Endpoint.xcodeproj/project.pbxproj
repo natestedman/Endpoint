@@ -14,6 +14,13 @@
 		437287871C5188EA00D803DC /* BaseURLEndpointProviderTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287861C5188EA00D803DC /* BaseURLEndpointProviderTypesTests.swift */; };
 		437287891C518BA400D803DC /* ProviderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287881C518BA400D803DC /* ProviderTypes.swift */; };
 		4372878B1C519E4900D803DC /* EndpointProviderTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4372878A1C519E4900D803DC /* EndpointProviderTypesTests.swift */; };
+		4372879B1C519F3200D803DC /* Endpoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437287911C519F3200D803DC /* Endpoint.framework */; };
+		437287A81C519F6000D803DC /* BaseURLEndpointProviderTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287861C5188EA00D803DC /* BaseURLEndpointProviderTypesTests.swift */; };
+		437287A91C519F6000D803DC /* EndpointProviderTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4372878A1C519E4900D803DC /* EndpointProviderTypesTests.swift */; };
+		437287AA1C519F6400D803DC /* AnyStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287841C51875700D803DC /* AnyStructures.swift */; };
+		437287AB1C519F6400D803DC /* EndpointTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287601C51828700D803DC /* EndpointTypes.swift */; };
+		437287AC1C519F6400D803DC /* ProviderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287881C518BA400D803DC /* ProviderTypes.swift */; };
+		437287AD1C519F6700D803DC /* Endpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 437287491C51821100D803DC /* Endpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,6 +29,13 @@
 			containerPortal = 4372873D1C51821100D803DC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 437287451C51821100D803DC;
+			remoteInfo = Endpoint;
+		};
+		4372879C1C519F3200D803DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4372873D1C51821100D803DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 437287901C519F3200D803DC;
 			remoteInfo = Endpoint;
 		};
 /* End PBXContainerItemProxy section */
@@ -37,6 +51,8 @@
 		437287861C5188EA00D803DC /* BaseURLEndpointProviderTypesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURLEndpointProviderTypesTests.swift; sourceTree = "<group>"; };
 		437287881C518BA400D803DC /* ProviderTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderTypes.swift; sourceTree = "<group>"; };
 		4372878A1C519E4900D803DC /* EndpointProviderTypesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointProviderTypesTests.swift; sourceTree = "<group>"; };
+		437287911C519F3200D803DC /* Endpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Endpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4372879A1C519F3200D803DC /* Endpoint-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Endpoint-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +68,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				437287511C51821100D803DC /* Endpoint.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4372878D1C519F3200D803DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437287971C519F3200D803DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4372879B1C519F3200D803DC /* Endpoint.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +103,8 @@
 			children = (
 				437287461C51821100D803DC /* Endpoint.framework */,
 				437287501C51821100D803DC /* Endpoint-OSXTests.xctest */,
+				437287911C519F3200D803DC /* Endpoint.framework */,
+				4372879A1C519F3200D803DC /* Endpoint-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +139,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4372874A1C51821100D803DC /* Endpoint.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4372878E1C519F3200D803DC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				437287AD1C519F6700D803DC /* Endpoint.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +189,42 @@
 			productReference = 437287501C51821100D803DC /* Endpoint-OSXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		437287901C519F3200D803DC /* Endpoint-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 437287A21C519F3200D803DC /* Build configuration list for PBXNativeTarget "Endpoint-iOS" */;
+			buildPhases = (
+				4372878C1C519F3200D803DC /* Sources */,
+				4372878D1C519F3200D803DC /* Frameworks */,
+				4372878E1C519F3200D803DC /* Headers */,
+				4372878F1C519F3200D803DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Endpoint-iOS";
+			productName = Endpoint;
+			productReference = 437287911C519F3200D803DC /* Endpoint.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		437287991C519F3200D803DC /* Endpoint-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 437287A51C519F3200D803DC /* Build configuration list for PBXNativeTarget "Endpoint-iOSTests" */;
+			buildPhases = (
+				437287961C519F3200D803DC /* Sources */,
+				437287971C519F3200D803DC /* Frameworks */,
+				437287981C519F3200D803DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4372879D1C519F3200D803DC /* PBXTargetDependency */,
+			);
+			name = "Endpoint-iOSTests";
+			productName = EndpointTests;
+			productReference = 4372879A1C519F3200D803DC /* Endpoint-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -162,6 +239,12 @@
 						CreatedOnToolsVersion = 7.3;
 					};
 					4372874F1C51821100D803DC = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					437287901C519F3200D803DC = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					437287991C519F3200D803DC = {
 						CreatedOnToolsVersion = 7.3;
 					};
 				};
@@ -180,6 +263,8 @@
 			targets = (
 				437287451C51821100D803DC /* Endpoint-OSX */,
 				4372874F1C51821100D803DC /* Endpoint-OSXTests */,
+				437287901C519F3200D803DC /* Endpoint-iOS */,
+				437287991C519F3200D803DC /* Endpoint-iOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -193,6 +278,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4372874E1C51821100D803DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4372878F1C519F3200D803DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437287981C519F3200D803DC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -221,6 +320,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4372878C1C519F3200D803DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				437287AC1C519F6400D803DC /* ProviderTypes.swift in Sources */,
+				437287AB1C519F6400D803DC /* EndpointTypes.swift in Sources */,
+				437287AA1C519F6400D803DC /* AnyStructures.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437287961C519F3200D803DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				437287A91C519F6000D803DC /* EndpointProviderTypesTests.swift in Sources */,
+				437287A81C519F6000D803DC /* BaseURLEndpointProviderTypesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -228,6 +346,11 @@
 			isa = PBXTargetDependency;
 			target = 437287451C51821100D803DC /* Endpoint-OSX */;
 			targetProxy = 437287521C51821100D803DC /* PBXContainerItemProxy */;
+		};
+		4372879D1C519F3200D803DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 437287901C519F3200D803DC /* Endpoint-iOS */;
+			targetProxy = 4372879C1C519F3200D803DC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -381,6 +504,74 @@
 			};
 			name = Release;
 		};
+		437287A31C519F3200D803DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Endpoint/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.natestedman.Endpoint;
+				PRODUCT_NAME = Endpoint;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		437287A41C519F3200D803DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Endpoint/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.natestedman.Endpoint;
+				PRODUCT_NAME = Endpoint;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		437287A61C519F3200D803DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = EndpointTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.natestedman.EndpointTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		437287A71C519F3200D803DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = EndpointTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.natestedman.EndpointTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -410,6 +601,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		437287A21C519F3200D803DC /* Build configuration list for PBXNativeTarget "Endpoint-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				437287A31C519F3200D803DC /* Debug */,
+				437287A41C519F3200D803DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		437287A51C519F3200D803DC /* Build configuration list for PBXNativeTarget "Endpoint-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				437287A61C519F3200D803DC /* Debug */,
+				437287A71C519F3200D803DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
