@@ -1,0 +1,17 @@
+custom_categories:
+    - name: Endpoint Types
+      children:
+          - EndpointType
+          - BaseURLEndpointType
+          
+    - name: Type Erasure
+      children:
+        - AnyEndpoint
+        - AnyBaseURLEndpoint
+    
+    - name: Provider Types
+      children:
+        - MethodProviderType
+        - QueryItemsProviderType
+        - RelativeURLStringProviderType
+        - URLProviderType
