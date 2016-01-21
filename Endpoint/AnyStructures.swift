@@ -50,3 +50,48 @@ extension AnyEndpoint: EndpointType
         return requestFunction()
     }
 }
+
+// MARK: BaseURLEndpointType
+
+/// A type-erased `BaseURLEndpointType`.
+public struct AnyBaseURLEndpoint
+{
+    private let requestFunction: NSURL -> NSURLRequest?
+
+    // MARK: - Initialization
+
+    internal init(requestFunction: NSURL -> NSURLRequest?)
+    {
+        self.requestFunction = requestFunction
+    }
+}
+
+extension AnyBaseURLEndpoint
+{
+    // MARK: - Initialization
+
+    /**
+     Wraps the specified base URL endpoint.
+
+     - parameter wrapped: The base URL endpoint to wrap.
+     */
+    public init(_ wrapped: BaseURLEndpointType)
+    {
+        self.init(requestFunction: wrapped.requestWithBaseURL)
+    }
+}
+
+extension AnyBaseURLEndpoint: BaseURLEndpointType
+{
+    // MARK: - Request
+
+    /**
+    Creates an endpoint for the base URL endpoint, with the specified base URL.
+
+    - parameter baseURL: The base URL.
+    */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        return requestFunction(baseURL)
+    }
+}
