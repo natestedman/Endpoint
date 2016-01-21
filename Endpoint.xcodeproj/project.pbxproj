@@ -30,7 +30,7 @@
 		437287461C51821100D803DC /* Endpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Endpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		437287491C51821100D803DC /* Endpoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Endpoint.h; sourceTree = "<group>"; };
 		4372874B1C51821100D803DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		437287501C51821100D803DC /* EndpointTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EndpointTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		437287501C51821100D803DC /* Endpoint-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Endpoint-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		437287551C51821100D803DC /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		437287571C51821100D803DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		437287601C51828700D803DC /* EndpointTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointTypes.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				437287461C51821100D803DC /* Endpoint.framework */,
-				437287501C51821100D803DC /* EndpointTests.xctest */,
+				437287501C51821100D803DC /* Endpoint-OSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,9 +112,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		437287451C51821100D803DC /* Endpoint */ = {
+		437287451C51821100D803DC /* Endpoint-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4372875A1C51821200D803DC /* Build configuration list for PBXNativeTarget "Endpoint" */;
+			buildConfigurationList = 4372875A1C51821200D803DC /* Build configuration list for PBXNativeTarget "Endpoint-OSX" */;
 			buildPhases = (
 				437287411C51821100D803DC /* Sources */,
 				437287421C51821100D803DC /* Frameworks */,
@@ -125,14 +125,14 @@
 			);
 			dependencies = (
 			);
-			name = Endpoint;
+			name = "Endpoint-OSX";
 			productName = Endpoint;
 			productReference = 437287461C51821100D803DC /* Endpoint.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4372874F1C51821100D803DC /* EndpointTests */ = {
+		4372874F1C51821100D803DC /* Endpoint-OSXTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4372875D1C51821200D803DC /* Build configuration list for PBXNativeTarget "EndpointTests" */;
+			buildConfigurationList = 4372875D1C51821200D803DC /* Build configuration list for PBXNativeTarget "Endpoint-OSXTests" */;
 			buildPhases = (
 				4372874C1C51821100D803DC /* Sources */,
 				4372874D1C51821100D803DC /* Frameworks */,
@@ -143,9 +143,9 @@
 			dependencies = (
 				437287531C51821100D803DC /* PBXTargetDependency */,
 			);
-			name = EndpointTests;
+			name = "Endpoint-OSXTests";
 			productName = EndpointTests;
-			productReference = 437287501C51821100D803DC /* EndpointTests.xctest */;
+			productReference = 437287501C51821100D803DC /* Endpoint-OSXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -178,8 +178,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				437287451C51821100D803DC /* Endpoint */,
-				4372874F1C51821100D803DC /* EndpointTests */,
+				437287451C51821100D803DC /* Endpoint-OSX */,
+				4372874F1C51821100D803DC /* Endpoint-OSXTests */,
 			);
 		};
 /* End PBXProject section */
@@ -226,7 +226,7 @@
 /* Begin PBXTargetDependency section */
 		437287531C51821100D803DC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 437287451C51821100D803DC /* Endpoint */;
+			target = 437287451C51821100D803DC /* Endpoint-OSX */;
 			targetProxy = 437287521C51821100D803DC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -333,7 +333,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.natestedman.Endpoint;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Endpoint;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -354,7 +354,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.natestedman.Endpoint;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Endpoint;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -393,7 +393,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4372875A1C51821200D803DC /* Build configuration list for PBXNativeTarget "Endpoint" */ = {
+		4372875A1C51821200D803DC /* Build configuration list for PBXNativeTarget "Endpoint-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4372875B1C51821200D803DC /* Debug */,
@@ -401,7 +401,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		4372875D1C51821200D803DC /* Build configuration list for PBXNativeTarget "EndpointTests" */ = {
+		4372875D1C51821200D803DC /* Build configuration list for PBXNativeTarget "Endpoint-OSXTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4372875E1C51821200D803DC /* Debug */,
