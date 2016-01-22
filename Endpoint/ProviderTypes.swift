@@ -55,11 +55,7 @@ extension EndpointType where Self: MethodProviderType, Self: URLProviderType
     /// A default implementation, provided when conforming to `MethodProviderType` and `URLProviderType`.
     public var request: NSURLRequest?
     {
-        return URL.flatMap({ URL in
-            let request = NSMutableURLRequest(URL: URL)
-            request.HTTPMethod = method
-            return request
-        })
+        return URL?.buildRequest(method: method)
     }
 }
 
@@ -71,12 +67,7 @@ extension EndpointType where Self: MethodProviderType, Self: HeaderFieldsProvide
     /// `URLProviderType`.
     public var request: NSURLRequest?
     {
-        return URL.flatMap({ URL in
-            let request = NSMutableURLRequest(URL: URL)
-            request.HTTPMethod = method
-            request.allHTTPHeaderFields = headerFields
-            return request
-        })
+        return URL?.buildRequest(method: method, headerFields: headerFields)
     }
 }
 
@@ -89,12 +80,8 @@ extension EndpointType where Self: MethodProviderType, Self: URLProviderType, Se
         return URL?
             .transformWithComponents({ components in
                 components.queryItems = queryItems
-            })
-            .map({ URL in
-                let request = NSMutableURLRequest(URL: URL)
-                request.HTTPMethod = method
-                return request
-            })
+            })?
+            .buildRequest(method: method)
     }
 }
 
@@ -111,13 +98,8 @@ extension EndpointType where
         return URL?
             .transformWithComponents({ components in
                 components.queryItems = queryItems
-            })
-            .map({ URL in
-                let request = NSMutableURLRequest(URL: URL)
-                request.HTTPMethod = method
-                request.allHTTPHeaderFields = headerFields
-                return request
-            })
+            })?
+            .buildRequest(method: method, headerFields: headerFields)
     }
 }
 
@@ -133,9 +115,7 @@ extension BaseURLEndpointType where Self: MethodProviderType
     */
     public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
     {
-        let request = NSMutableURLRequest(URL: baseURL)
-        request.HTTPMethod = method
-        return request
+        return baseURL.buildRequest(method: method)
     }
 }
 
@@ -150,10 +130,7 @@ extension BaseURLEndpointType where Self: MethodProviderType, Self: HeaderFields
     */
     public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
     {
-        let request = NSMutableURLRequest(URL: baseURL)
-        request.HTTPMethod = method
-        request.allHTTPHeaderFields = headerFields
-        return request
+        return baseURL.buildRequest(method: method, headerFields: headerFields)
     }
 }
 
@@ -168,11 +145,8 @@ extension BaseURLEndpointType where Self: MethodProviderType, Self: RelativeURLS
      */
     public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
     {
-        return NSURL(string: relativeURLString, relativeToURL: baseURL).map({ URL in
-            let request = NSMutableURLRequest(URL: URL)
-            request.HTTPMethod = method
-            return request
-        })
+        return NSURL(string: relativeURLString, relativeToURL: baseURL)?
+            .buildRequest(method: method)
     }
 }
 
@@ -190,12 +164,8 @@ extension BaseURLEndpointType where
      */
     public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
     {
-        return NSURL(string: relativeURLString, relativeToURL: baseURL).map({ URL in
-            let request = NSMutableURLRequest(URL: URL)
-            request.HTTPMethod = method
-            request.allHTTPHeaderFields = headerFields
-            return request
-        })
+        return NSURL(string: relativeURLString, relativeToURL: baseURL)?
+            .buildRequest(method: method, headerFields: headerFields)
     }
 }
 
@@ -213,12 +183,8 @@ extension BaseURLEndpointType where Self: MethodProviderType, Self: QueryItemsPr
         return baseURL
             .transformWithComponents({ components in
                 components.queryItems = queryItems
-            })
-            .map({ URL in
-                let request = NSMutableURLRequest(URL: URL)
-                request.HTTPMethod = method
-                return request
-            })
+            })?
+            .buildRequest(method: method)
     }
 }
 
@@ -239,13 +205,8 @@ extension BaseURLEndpointType where
         return baseURL
             .transformWithComponents({ components in
                 components.queryItems = queryItems
-            })
-            .map({ URL in
-                let request = NSMutableURLRequest(URL: URL)
-                request.HTTPMethod = method
-                request.allHTTPHeaderFields = headerFields
-                return request
-            })
+            })?
+            .buildRequest(method: method, headerFields: headerFields)
     }
 }
 
@@ -263,12 +224,8 @@ extension BaseURLEndpointType where Self: MethodProviderType, Self: RelativeURLS
         return NSURL(string: relativeURLString, relativeToURL: baseURL)?
             .transformWithComponents({ components in
                 components.queryItems = queryItems
-            })
-            .map({ URL in
-                let request = NSMutableURLRequest(URL: URL)
-                request.HTTPMethod = method
-                return request
-            })
+            })?
+            .buildRequest(method: method)
     }
 }
 
@@ -290,12 +247,7 @@ extension BaseURLEndpointType where
         return NSURL(string: relativeURLString, relativeToURL: baseURL)?
             .transformWithComponents({ components in
                 components.queryItems = queryItems
-            })
-            .map({ URL in
-                let request = NSMutableURLRequest(URL: URL)
-                request.HTTPMethod = method
-                request.allHTTPHeaderFields = headerFields
-                return request
-            })
+            })?
+            .buildRequest(method: method, headerFields: headerFields)
     }
 }

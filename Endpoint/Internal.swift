@@ -19,4 +19,12 @@ extension NSURL
             return components.URL
         })
     }
+
+    internal func buildRequest(method method: String, headerFields: [String:String]? = nil) -> NSURLRequest
+    {
+        let request = NSMutableURLRequest(URL: self)
+        request.HTTPMethod = method
+        request.allHTTPHeaderFields = headerFields
+        return request
+    }
 }
