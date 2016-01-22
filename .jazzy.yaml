@@ -11,6 +11,7 @@ custom_categories:
     
     - name: Provider Types
       children:
+        - HeaderFieldsProviderType
         - MethodProviderType
         - QueryItemsProviderType
         - RelativeURLStringProviderType
