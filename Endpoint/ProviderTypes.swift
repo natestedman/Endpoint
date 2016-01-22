@@ -210,7 +210,10 @@ extension BaseURLEndpointType where
     }
 }
 
-extension BaseURLEndpointType where Self: MethodProviderType, Self: RelativeURLStringProviderType, Self: QueryItemsProviderType
+extension BaseURLEndpointType where
+    Self: MethodProviderType,
+    Self: RelativeURLStringProviderType,
+    Self: QueryItemsProviderType
 {
     // MARK: - MethodProviderType, QueryItemsProviderType, & RelativeURLStringProviderType
 
