@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4318DFC11C52775800C29AE5 /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4318DFC01C52775800C29AE5 /* Internal.swift */; };
+		4318DFC21C52775800C29AE5 /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4318DFC01C52775800C29AE5 /* Internal.swift */; };
 		4372874A1C51821100D803DC /* Endpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 437287491C51821100D803DC /* Endpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		437287511C51821100D803DC /* Endpoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437287461C51821100D803DC /* Endpoint.framework */; };
 		437287611C51828700D803DC /* EndpointTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287601C51828700D803DC /* EndpointTypes.swift */; };
@@ -41,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4318DFC01C52775800C29AE5 /* Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Internal.swift; sourceTree = "<group>"; };
 		437287461C51821100D803DC /* Endpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Endpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		437287491C51821100D803DC /* Endpoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Endpoint.h; sourceTree = "<group>"; };
 		4372874B1C51821100D803DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,6 +119,7 @@
 				437287841C51875700D803DC /* AnyStructures.swift */,
 				437287601C51828700D803DC /* EndpointTypes.swift */,
 				437287881C518BA400D803DC /* ProviderTypes.swift */,
+				4318DFC01C52775800C29AE5 /* Internal.swift */,
 				4372874B1C51821100D803DC /* Info.plist */,
 			);
 			path = Endpoint;
@@ -305,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4318DFC11C52775800C29AE5 /* Internal.swift in Sources */,
 				437287891C518BA400D803DC /* ProviderTypes.swift in Sources */,
 				437287851C51875700D803DC /* AnyStructures.swift in Sources */,
 				437287611C51828700D803DC /* EndpointTypes.swift in Sources */,
@@ -324,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4318DFC21C52775800C29AE5 /* Internal.swift in Sources */,
 				437287AC1C519F6400D803DC /* ProviderTypes.swift in Sources */,
 				437287AB1C519F6400D803DC /* EndpointTypes.swift in Sources */,
 				437287AA1C519F6400D803DC /* AnyStructures.swift in Sources */,
@@ -609,6 +615,7 @@
 				437287A41C519F3200D803DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		437287A51C519F3200D803DC /* Build configuration list for PBXNativeTarget "Endpoint-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -617,6 +624,7 @@
 				437287A71C519F3200D803DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

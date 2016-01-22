@@ -86,13 +86,9 @@ extension EndpointType where Self: MethodProviderType, Self: URLProviderType, Se
     /// `QueryItemsProviderType`.
     public var request: NSURLRequest?
     {
-        return URL
-            .flatMap({ URL in
-                NSURLComponents(URL: URL, resolvingAgainstBaseURL: true)
-            })
-            .flatMap({ components -> NSURL? in
+        return URL?
+            .transformWithComponents({ components in
                 components.queryItems = queryItems
-                return components.URL
             })
             .map({ URL in
                 let request = NSMutableURLRequest(URL: URL)
@@ -112,13 +108,9 @@ extension EndpointType where
     /// `HeaderFieldsProviderType`, and `QueryItemsProviderType`.
     public var request: NSURLRequest?
     {
-        return URL
-            .flatMap({ URL in
-                NSURLComponents(URL: URL, resolvingAgainstBaseURL: true)
-            })
-            .flatMap({ components -> NSURL? in
+        return URL?
+            .transformWithComponents({ components in
                 components.queryItems = queryItems
-                return components.URL
             })
             .map({ URL in
                 let request = NSMutableURLRequest(URL: URL)
@@ -218,10 +210,9 @@ extension BaseURLEndpointType where Self: MethodProviderType, Self: QueryItemsPr
      */
     public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
     {
-        return NSURLComponents(URL: baseURL, resolvingAgainstBaseURL: true)
-            .flatMap({ components -> NSURL? in
+        return baseURL
+            .transformWithComponents({ components in
                 components.queryItems = queryItems
-                return components.URL
             })
             .map({ URL in
                 let request = NSMutableURLRequest(URL: URL)
@@ -245,10 +236,9 @@ extension BaseURLEndpointType where
      */
     public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
     {
-        return NSURLComponents(URL: baseURL, resolvingAgainstBaseURL: true)
-            .flatMap({ components -> NSURL? in
+        return baseURL
+            .transformWithComponents({ components in
                 components.queryItems = queryItems
-                return components.URL
             })
             .map({ URL in
                 let request = NSMutableURLRequest(URL: URL)
@@ -270,13 +260,9 @@ extension BaseURLEndpointType where Self: MethodProviderType, Self: RelativeURLS
      */
     public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
     {
-        return NSURL(string: relativeURLString, relativeToURL: baseURL)
-            .flatMap({ URL in
-                NSURLComponents(URL: URL, resolvingAgainstBaseURL: true)
-            })
-            .flatMap({ components -> NSURL? in
+        return NSURL(string: relativeURLString, relativeToURL: baseURL)?
+            .transformWithComponents({ components in
                 components.queryItems = queryItems
-                return components.URL
             })
             .map({ URL in
                 let request = NSMutableURLRequest(URL: URL)
@@ -301,13 +287,9 @@ extension BaseURLEndpointType where
      */
     public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
     {
-        return NSURL(string: relativeURLString, relativeToURL: baseURL)
-            .flatMap({ URL in
-                NSURLComponents(URL: URL, resolvingAgainstBaseURL: true)
-            })
-            .flatMap({ components -> NSURL? in
+        return NSURL(string: relativeURLString, relativeToURL: baseURL)?
+            .transformWithComponents({ components in
                 components.queryItems = queryItems
-                return components.URL
             })
             .map({ URL in
                 let request = NSMutableURLRequest(URL: URL)
