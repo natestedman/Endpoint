@@ -50,6 +50,13 @@ To create an HTTP request, a method is required. This is implemented by `MethodP
 
 To take advantage of the other provider types, your type *must* provide an HTTP method.
 
+#### Header Fields
+Provides a dictionary of HTTP header fields to add to the request:
+
+    var headerFields: [String:String] { get }
+
+This can be used with both `EndpointType` or `BaseURLEndpointType`, as long as `MethodProviderType` is also implemented.
+
 #### Query Items
 Provides an array of query items to append to the request's URL:
 
