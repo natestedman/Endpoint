@@ -12,6 +12,13 @@ import Foundation
 
 // MARK: - Provider Types
 
+/// A type that provides HTTP header fields for a URL request.
+public protocol HeaderFieldsProviderType
+{
+    /// The HTTP header fields.
+    var headerFields: [String:String] { get }
+}
+
 /// A type that provides a relative URL string for a URL request.
 public protocol RelativeURLStringProviderType
 {
@@ -56,6 +63,23 @@ extension EndpointType where Self: MethodProviderType, Self: URLProviderType
     }
 }
 
+extension EndpointType where Self: MethodProviderType, Self: HeaderFieldsProviderType, Self: URLProviderType
+{
+    // MARK: - MethodProviderType, HeaderFieldsProviderType, & URLProviderType
+
+    /// A default implementation, provided when conforming to `MethodProviderType`, `HeaderFieldsProviderType, and
+    /// `URLProviderType`.
+    public var request: NSURLRequest?
+    {
+        return URL.flatMap({ URL in
+            let request = NSMutableURLRequest(URL: URL)
+            request.HTTPMethod = method
+            request.allHTTPHeaderFields = headerFields
+            return request
+        })
+    }
+}
+
 extension EndpointType where Self: MethodProviderType, Self: URLProviderType, Self: QueryItemsProviderType
 {
     /// A default implementation, provided when conforming to `MethodProviderType`, `URLProviderType`, and
@@ -73,6 +97,33 @@ extension EndpointType where Self: MethodProviderType, Self: URLProviderType, Se
             .map({ URL in
                 let request = NSMutableURLRequest(URL: URL)
                 request.HTTPMethod = method
+                return request
+            })
+    }
+}
+
+extension EndpointType where
+    Self: MethodProviderType,
+    Self: URLProviderType,
+    Self: HeaderFieldsProviderType,
+    Self: QueryItemsProviderType
+{
+    /// A default implementation, provided when conforming to `MethodProviderType`, `URLProviderType`
+    /// `HeaderFieldsProviderType`, and `QueryItemsProviderType`.
+    public var request: NSURLRequest?
+    {
+        return URL
+            .flatMap({ URL in
+                NSURLComponents(URL: URL, resolvingAgainstBaseURL: true)
+            })
+            .flatMap({ components -> NSURL? in
+                components.queryItems = queryItems
+                return components.URL
+            })
+            .map({ URL in
+                let request = NSMutableURLRequest(URL: URL)
+                request.HTTPMethod = method
+                request.allHTTPHeaderFields = headerFields
                 return request
             })
     }
@@ -96,6 +147,24 @@ extension BaseURLEndpointType where Self: MethodProviderType
     }
 }
 
+extension BaseURLEndpointType where Self: MethodProviderType, Self: HeaderFieldsProviderType
+{
+    // MARK: - MethodProviderType & HeaderFieldsProviderType
+
+    /**
+    A default implementation of `BaseURLEndpointType`'s requirement.
+
+    - parameter baseURL: The base URL.
+    */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        let request = NSMutableURLRequest(URL: baseURL)
+        request.HTTPMethod = method
+        request.allHTTPHeaderFields = headerFields
+        return request
+    }
+}
+
 extension BaseURLEndpointType where Self: MethodProviderType, Self: RelativeURLStringProviderType
 {
     // MARK: - MethodProviderType & RelativeURLStringProviderType
@@ -110,6 +179,29 @@ extension BaseURLEndpointType where Self: MethodProviderType, Self: RelativeURLS
         return NSURL(string: relativeURLString, relativeToURL: baseURL).map({ URL in
             let request = NSMutableURLRequest(URL: URL)
             request.HTTPMethod = method
+            return request
+        })
+    }
+}
+
+extension BaseURLEndpointType where
+    Self: MethodProviderType,
+    Self: HeaderFieldsProviderType,
+    Self: RelativeURLStringProviderType
+{
+    // MARK: - MethodProviderType, HeaderFieldsProviderType, & RelativeURLStringProviderType
+
+    /**
+     A default implementation of `BaseURLEndpointType`'s requirement.
+
+     - parameter baseURL: The base URL.
+     */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        return NSURL(string: relativeURLString, relativeToURL: baseURL).map({ URL in
+            let request = NSMutableURLRequest(URL: URL)
+            request.HTTPMethod = method
+            request.allHTTPHeaderFields = headerFields
             return request
         })
     }
@@ -139,6 +231,34 @@ extension BaseURLEndpointType where Self: MethodProviderType, Self: QueryItemsPr
     }
 }
 
+extension BaseURLEndpointType where
+    Self: MethodProviderType,
+    Self: HeaderFieldsProviderType,
+    Self: QueryItemsProviderType
+{
+    // MARK: - MethodProviderType, HeaderFieldsProviderType, & QueryItemsProviderType
+
+    /**
+     A default implementation of `BaseURLEndpointType`'s requirement.
+
+     - parameter baseURL: The base URL.
+     */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        return NSURLComponents(URL: baseURL, resolvingAgainstBaseURL: true)
+            .flatMap({ components -> NSURL? in
+                components.queryItems = queryItems
+                return components.URL
+            })
+            .map({ URL in
+                let request = NSMutableURLRequest(URL: URL)
+                request.HTTPMethod = method
+                request.allHTTPHeaderFields = headerFields
+                return request
+            })
+    }
+}
+
 extension BaseURLEndpointType where Self: MethodProviderType, Self: RelativeURLStringProviderType, Self: QueryItemsProviderType
 {
     // MARK: - MethodProviderType, QueryItemsProviderType, & RelativeURLStringProviderType
@@ -161,6 +281,38 @@ extension BaseURLEndpointType where Self: MethodProviderType, Self: RelativeURLS
             .map({ URL in
                 let request = NSMutableURLRequest(URL: URL)
                 request.HTTPMethod = method
+                return request
+            })
+    }
+}
+
+extension BaseURLEndpointType where
+    Self: MethodProviderType,
+    Self: HeaderFieldsProviderType,
+    Self: RelativeURLStringProviderType,
+    Self: QueryItemsProviderType
+{
+    // MARK: - MethodProviderType, HeaderFieldsProviderType, QueryItemsProviderType, & RelativeURLStringProviderType
+
+    /**
+     A default implementation of `BaseURLEndpointType`'s requirement.
+
+     - parameter baseURL: The base URL.
+     */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        return NSURL(string: relativeURLString, relativeToURL: baseURL)
+            .flatMap({ URL in
+                NSURLComponents(URL: URL, resolvingAgainstBaseURL: true)
+            })
+            .flatMap({ components -> NSURL? in
+                components.queryItems = queryItems
+                return components.URL
+            })
+            .map({ URL in
+                let request = NSMutableURLRequest(URL: URL)
+                request.HTTPMethod = method
+                request.allHTTPHeaderFields = headerFields
                 return request
             })
     }
