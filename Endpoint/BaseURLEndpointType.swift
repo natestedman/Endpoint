@@ -10,19 +10,6 @@
 
 import Foundation
 
-// MARK: - Endpoint
-
-/// An endpoint, which provides a URL request to load itself.
-public protocol EndpointType
-{
-    // MARK: - Requests
-
-    /// A request to load the endpoint.
-    var request: NSURLRequest? { get }
-}
-
-// MARK: - Base URL
-
 /// A relative URL endpoint, which provides a URL request given a base URL.
 ///
 /// This type can be used to implement switchable backends, e.g. production, staging, development.

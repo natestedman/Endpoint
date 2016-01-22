@@ -9,9 +9,15 @@
 /* Begin PBXBuildFile section */
 		4318DFC11C52775800C29AE5 /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4318DFC01C52775800C29AE5 /* Internal.swift */; };
 		4318DFC21C52775800C29AE5 /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4318DFC01C52775800C29AE5 /* Internal.swift */; };
+		4318DFC41C527DA200C29AE5 /* EndpointType+ProviderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4318DFC31C527DA200C29AE5 /* EndpointType+ProviderTypes.swift */; };
+		4318DFC51C527DA200C29AE5 /* EndpointType+ProviderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4318DFC31C527DA200C29AE5 /* EndpointType+ProviderTypes.swift */; };
+		4318DFC71C527DF500C29AE5 /* BaseURLEndpointType+ProviderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4318DFC61C527DF500C29AE5 /* BaseURLEndpointType+ProviderTypes.swift */; };
+		4318DFC81C527DF500C29AE5 /* BaseURLEndpointType+ProviderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4318DFC61C527DF500C29AE5 /* BaseURLEndpointType+ProviderTypes.swift */; };
+		4318DFCA1C527DFF00C29AE5 /* BaseURLEndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4318DFC91C527DFF00C29AE5 /* BaseURLEndpointType.swift */; };
+		4318DFCB1C527DFF00C29AE5 /* BaseURLEndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4318DFC91C527DFF00C29AE5 /* BaseURLEndpointType.swift */; };
 		4372874A1C51821100D803DC /* Endpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 437287491C51821100D803DC /* Endpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		437287511C51821100D803DC /* Endpoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437287461C51821100D803DC /* Endpoint.framework */; };
-		437287611C51828700D803DC /* EndpointTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287601C51828700D803DC /* EndpointTypes.swift */; };
+		437287611C51828700D803DC /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287601C51828700D803DC /* EndpointType.swift */; };
 		437287851C51875700D803DC /* AnyStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287841C51875700D803DC /* AnyStructures.swift */; };
 		437287871C5188EA00D803DC /* BaseURLEndpointProviderTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287861C5188EA00D803DC /* BaseURLEndpointProviderTypesTests.swift */; };
 		437287891C518BA400D803DC /* ProviderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287881C518BA400D803DC /* ProviderTypes.swift */; };
@@ -20,7 +26,7 @@
 		437287A81C519F6000D803DC /* BaseURLEndpointProviderTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287861C5188EA00D803DC /* BaseURLEndpointProviderTypesTests.swift */; };
 		437287A91C519F6000D803DC /* EndpointProviderTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4372878A1C519E4900D803DC /* EndpointProviderTypesTests.swift */; };
 		437287AA1C519F6400D803DC /* AnyStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287841C51875700D803DC /* AnyStructures.swift */; };
-		437287AB1C519F6400D803DC /* EndpointTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287601C51828700D803DC /* EndpointTypes.swift */; };
+		437287AB1C519F6400D803DC /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287601C51828700D803DC /* EndpointType.swift */; };
 		437287AC1C519F6400D803DC /* ProviderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287881C518BA400D803DC /* ProviderTypes.swift */; };
 		437287AD1C519F6700D803DC /* Endpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 437287491C51821100D803DC /* Endpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -44,12 +50,15 @@
 
 /* Begin PBXFileReference section */
 		4318DFC01C52775800C29AE5 /* Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Internal.swift; sourceTree = "<group>"; };
+		4318DFC31C527DA200C29AE5 /* EndpointType+ProviderTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EndpointType+ProviderTypes.swift"; sourceTree = "<group>"; };
+		4318DFC61C527DF500C29AE5 /* BaseURLEndpointType+ProviderTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseURLEndpointType+ProviderTypes.swift"; sourceTree = "<group>"; };
+		4318DFC91C527DFF00C29AE5 /* BaseURLEndpointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURLEndpointType.swift; sourceTree = "<group>"; };
 		437287461C51821100D803DC /* Endpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Endpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		437287491C51821100D803DC /* Endpoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Endpoint.h; sourceTree = "<group>"; };
 		4372874B1C51821100D803DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		437287501C51821100D803DC /* Endpoint-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Endpoint-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		437287571C51821100D803DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		437287601C51828700D803DC /* EndpointTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointTypes.swift; sourceTree = "<group>"; };
+		437287601C51828700D803DC /* EndpointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 		437287841C51875700D803DC /* AnyStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyStructures.swift; sourceTree = "<group>"; };
 		437287861C5188EA00D803DC /* BaseURLEndpointProviderTypesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURLEndpointProviderTypesTests.swift; sourceTree = "<group>"; };
 		437287881C518BA400D803DC /* ProviderTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderTypes.swift; sourceTree = "<group>"; };
@@ -117,9 +126,12 @@
 			children = (
 				437287491C51821100D803DC /* Endpoint.h */,
 				437287841C51875700D803DC /* AnyStructures.swift */,
-				437287601C51828700D803DC /* EndpointTypes.swift */,
-				437287881C518BA400D803DC /* ProviderTypes.swift */,
+				4318DFC91C527DFF00C29AE5 /* BaseURLEndpointType.swift */,
+				4318DFC61C527DF500C29AE5 /* BaseURLEndpointType+ProviderTypes.swift */,
+				437287601C51828700D803DC /* EndpointType.swift */,
+				4318DFC31C527DA200C29AE5 /* EndpointType+ProviderTypes.swift */,
 				4318DFC01C52775800C29AE5 /* Internal.swift */,
+				437287881C518BA400D803DC /* ProviderTypes.swift */,
 				4372874B1C51821100D803DC /* Info.plist */,
 			);
 			path = Endpoint;
@@ -310,9 +322,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4318DFC11C52775800C29AE5 /* Internal.swift in Sources */,
+				4318DFC41C527DA200C29AE5 /* EndpointType+ProviderTypes.swift in Sources */,
 				437287891C518BA400D803DC /* ProviderTypes.swift in Sources */,
 				437287851C51875700D803DC /* AnyStructures.swift in Sources */,
-				437287611C51828700D803DC /* EndpointTypes.swift in Sources */,
+				4318DFC71C527DF500C29AE5 /* BaseURLEndpointType+ProviderTypes.swift in Sources */,
+				4318DFCA1C527DFF00C29AE5 /* BaseURLEndpointType.swift in Sources */,
+				437287611C51828700D803DC /* EndpointType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,8 +345,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4318DFC21C52775800C29AE5 /* Internal.swift in Sources */,
+				4318DFC51C527DA200C29AE5 /* EndpointType+ProviderTypes.swift in Sources */,
 				437287AC1C519F6400D803DC /* ProviderTypes.swift in Sources */,
-				437287AB1C519F6400D803DC /* EndpointTypes.swift in Sources */,
+				437287AB1C519F6400D803DC /* EndpointType.swift in Sources */,
+				4318DFC81C527DF500C29AE5 /* BaseURLEndpointType+ProviderTypes.swift in Sources */,
+				4318DFCB1C527DFF00C29AE5 /* BaseURLEndpointType.swift in Sources */,
 				437287AA1C519F6400D803DC /* AnyStructures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
