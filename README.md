@@ -9,7 +9,7 @@ Endpoint is specifically concerned with building URL requests - while it might m
 
 ## Usage
 ### Endpoint Protocols
-There are two endpoint protocol types: `EndpointType`, and `BaseURLEndpointType`.
+There are two endpoint protocol types: `EndpointType`, and `BaseURLEndpointType`. To define an endpoint, create a type that conforms to one of these protocols - this could be a `struct` for each individual endpoint, an `enum` for all endpoints, or a `class` if a reference type if necessary.
 
 #### Endpoints
 Endpoints simply provide:
