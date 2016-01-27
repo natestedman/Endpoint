@@ -36,7 +36,7 @@ In this example, a `GET` endpoint is created for the `users` API, sorting users 
         QueryItemsProviderType,
         RelativeURLStringProviderType
     {
-        let method = "GET"
+        let method = .Get
         let queryItems = [NSURLQueryItem(name: "sort", value: "created")]
         let relativeURLString = "users"
     }

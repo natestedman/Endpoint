@@ -17,7 +17,7 @@ class EndpointProviderTypesTests: XCTestCase
     {
         struct Provider: EndpointType, MethodProviderType, URLProviderType
         {
-            let method = "POST"
+            let method = Method.Post
             let URL = NSURL(string: "http://test.com/")
         }
 
@@ -31,7 +31,7 @@ class EndpointProviderTypesTests: XCTestCase
     {
         struct Provider: EndpointType, MethodProviderType, URLProviderType, HeaderFieldsProviderType
         {
-            let method = "POST"
+            let method = Method.Post
             let URL = NSURL(string: "http://test.com/")
             let headerFields = ["X-TEST": "TEST"]
         }
@@ -47,7 +47,7 @@ class EndpointProviderTypesTests: XCTestCase
     {
         struct Provider: EndpointType, MethodProviderType, URLProviderType, QueryItemsProviderType
         {
-            let method = "POST"
+            let method = Method.Post
             let URL = NSURL(string: "http://test.com/")
             let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
         }
@@ -62,7 +62,7 @@ class EndpointProviderTypesTests: XCTestCase
     {
         struct Provider: EndpointType, MethodProviderType, URLProviderType, QueryItemsProviderType, HeaderFieldsProviderType
         {
-            let method = "POST"
+            let method = Method.Post
             let URL = NSURL(string: "http://test.com/")
             let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
             let headerFields = ["X-TEST": "TEST"]

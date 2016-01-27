@@ -17,7 +17,7 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
     {
         struct Provider: BaseURLEndpointType, MethodProviderType
         {
-            let method = "POST"
+            let method = Method.Post
         }
 
         let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/")!)
@@ -30,7 +30,7 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
     {
         struct Provider: BaseURLEndpointType, MethodProviderType, HeaderFieldsProviderType
         {
-            let method = "POST"
+            let method = Method.Post
             let headerFields = ["X-TEST": "TEST"]
         }
 
@@ -46,7 +46,7 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
         struct Provider: BaseURLEndpointType, MethodProviderType, RelativeURLStringProviderType
         {
             let relativeURLString = "test"
-            let method = "POST"
+            let method = Method.Post
         }
 
         let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/test")!)
@@ -60,7 +60,7 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
         struct Provider: BaseURLEndpointType, MethodProviderType, RelativeURLStringProviderType, HeaderFieldsProviderType
         {
             let relativeURLString = "test"
-            let method = "POST"
+            let method = Method.Post
             let headerFields = ["X-TEST": "TEST"]
         }
 
@@ -75,7 +75,7 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
     {
         struct Provider: BaseURLEndpointType, MethodProviderType, QueryItemsProviderType
         {
-            let method = "POST"
+            let method = Method.Post
             let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
         }
 
@@ -89,7 +89,7 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
     {
         struct Provider: BaseURLEndpointType, MethodProviderType, QueryItemsProviderType, HeaderFieldsProviderType
         {
-            let method = "POST"
+            let method = Method.Post
             let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
             let headerFields = ["X-TEST": "TEST"]
         }
@@ -106,7 +106,7 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
         struct Provider: BaseURLEndpointType, MethodProviderType, RelativeURLStringProviderType, QueryItemsProviderType
         {
             let relativeURLString = "test"
-            let method = "POST"
+            let method = Method.Post
             let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
         }
 
@@ -126,7 +126,7 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
             HeaderFieldsProviderType
         {
             let relativeURLString = "test"
-            let method = "POST"
+            let method = Method.Post
             let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
             let headerFields = ["X-TEST": "TEST"]
         }
@@ -143,7 +143,7 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
         struct Provider: BaseURLEndpointType, MethodProviderType, RelativeURLStringProviderType, QueryItemsProviderType
         {
             let relativeURLString = "test"
-            let method = "POST"
+            let method = Method.Post
             let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
 
             private func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?

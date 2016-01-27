@@ -29,6 +29,8 @@
 		437287AB1C519F6400D803DC /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287601C51828700D803DC /* EndpointType.swift */; };
 		437287AC1C519F6400D803DC /* ProviderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437287881C518BA400D803DC /* ProviderTypes.swift */; };
 		437287AD1C519F6700D803DC /* Endpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 437287491C51821100D803DC /* Endpoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4389C7E41C59378C004D7328 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4389C7E31C59378C004D7328 /* Method.swift */; };
+		4389C7E51C59378C004D7328 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4389C7E31C59378C004D7328 /* Method.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,7 @@
 		4372878A1C519E4900D803DC /* EndpointProviderTypesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointProviderTypesTests.swift; sourceTree = "<group>"; };
 		437287911C519F3200D803DC /* Endpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Endpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4372879A1C519F3200D803DC /* Endpoint-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Endpoint-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4389C7E31C59378C004D7328 /* Method.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,7 @@
 				437287601C51828700D803DC /* EndpointType.swift */,
 				4318DFC31C527DA200C29AE5 /* EndpointType+ProviderTypes.swift */,
 				4318DFC01C52775800C29AE5 /* Internal.swift */,
+				4389C7E31C59378C004D7328 /* Method.swift */,
 				437287881C518BA400D803DC /* ProviderTypes.swift */,
 				4372874B1C51821100D803DC /* Info.plist */,
 			);
@@ -321,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4389C7E41C59378C004D7328 /* Method.swift in Sources */,
 				4318DFC11C52775800C29AE5 /* Internal.swift in Sources */,
 				4318DFC41C527DA200C29AE5 /* EndpointType+ProviderTypes.swift in Sources */,
 				437287891C518BA400D803DC /* ProviderTypes.swift in Sources */,
@@ -344,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4389C7E51C59378C004D7328 /* Method.swift in Sources */,
 				4318DFC21C52775800C29AE5 /* Internal.swift in Sources */,
 				4318DFC51C527DA200C29AE5 /* EndpointType+ProviderTypes.swift in Sources */,
 				437287AC1C519F6400D803DC /* ProviderTypes.swift in Sources */,

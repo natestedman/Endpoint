@@ -30,7 +30,7 @@ public protocol RelativeURLStringProviderType
 public protocol MethodProviderType
 {
     /// The HTTP method of the URL.
-    var method: String { get }
+    var method: Method { get }
 }
 
 /// A type that provides query items for a URL request.
