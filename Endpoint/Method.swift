@@ -11,13 +11,30 @@
 /// Enumerates the HTTP methods.
 public enum Method: String
 {
+    /// `OPTIONS`.
     case Options = "OPTIONS"
+
+    /// `GET`.
     case Get = "GET"
+
+    /// `HEAD`.
     case Head = "HEAD"
+
+    /// `POST`.
     case Post = "POST"
+
+    /// `PUT`.
     case Put = "PUT"
+
+    /// `PATCH`.
     case Patch = "PATCH"
+
+    /// `DELETE`.
     case Delete = "DELETE"
+
+    /// `TRACE`.
     case Trace = "TRACE"
+
+    /// `CONNECT`.
     case Connect = "CONNECT"
 }
