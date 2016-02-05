@@ -11,8 +11,19 @@ custom_categories:
     
     - name: Provider Types
       children:
+        - BodyProviderType
         - HeaderFieldsProviderType
         - MethodProviderType
         - QueryItemsProviderType
         - RelativeURLStringProviderType
         - URLProviderType
+        
+    - name: Body Data
+      children:
+        - BodyType
+        - NSData
+        - NSInputStream
+
+    - name: HTTP Methods
+      children:
+        - Method

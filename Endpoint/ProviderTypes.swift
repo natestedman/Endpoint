@@ -12,8 +12,10 @@ import Foundation
 
 // MARK: - Provider Types
 
+/// A type that provides an HTTP body for a URL request.
 public protocol BodyProviderType
 {
+    /// The HTTP body for the request.
     var body: BodyType? { get }
 }
 
