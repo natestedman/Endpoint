@@ -20,11 +20,18 @@ extension NSURL
         })
     }
 
-    internal func buildRequest(method method: Method, headerFields: [String:String]? = nil) -> NSURLRequest
+    internal func buildRequest(method method: Method, headerFields: [String:String]? = nil, body: BodyType? = nil)
+        -> NSURLRequest
     {
         let request = NSMutableURLRequest(URL: self)
         request.HTTPMethod = method.rawValue
         request.allHTTPHeaderFields = headerFields
+
+        if let b = body
+        {
+            b.applyToMutableURLRequest(request)
+        }
+
         return request
     }
 }

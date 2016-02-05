@@ -20,6 +20,17 @@ extension EndpointType where Self: MethodProviderType, Self: URLProviderType
     }
 }
 
+// MARK: - MethodProviderType, BodyProviderType, & URLProviderType
+extension EndpointType where Self: MethodProviderType, Self: BodyProviderType, Self: URLProviderType
+{
+    /// A default implementation, provided when conforming to `MethodProviderType`, `BodyProviderType`, and
+    /// `URLProviderType`.
+    public var request: NSURLRequest?
+    {
+        return URL?.buildRequest(method: method, body: body)
+    }
+}
+
 // MARK: - MethodProviderType, HeaderFieldsProviderType, & URLProviderType
 extension EndpointType where Self: MethodProviderType, Self: HeaderFieldsProviderType, Self: URLProviderType
 {
@@ -28,6 +39,21 @@ extension EndpointType where Self: MethodProviderType, Self: HeaderFieldsProvide
     public var request: NSURLRequest?
     {
         return URL?.buildRequest(method: method, headerFields: headerFields)
+    }
+}
+
+// MARK: - MethodProviderType, BodyProviderType, HeaderFieldsProviderType, & URLProviderType
+extension EndpointType where
+    Self: MethodProviderType,
+    Self: BodyProviderType,
+    Self: HeaderFieldsProviderType,
+    Self: URLProviderType
+{
+    /// A default implementation, provided when conforming to `MethodProviderType`, `HeaderFieldsProviderType`, 
+    /// `BodyProviderType`, and `URLProviderType`.
+    public var request: NSURLRequest?
+    {
+        return URL?.buildRequest(method: method, headerFields: headerFields, body: body)
     }
 }
 
@@ -43,6 +69,25 @@ extension EndpointType where Self: MethodProviderType, Self: URLProviderType, Se
                 components.queryItems = queryItems
             })?
             .buildRequest(method: method)
+    }
+}
+
+// MARK: - MethodProviderType, BodyProviderType, URLProviderType, & QueryItemsProviderType
+extension EndpointType where
+    Self: MethodProviderType,
+    Self: BodyProviderType,
+    Self: URLProviderType,
+    Self: QueryItemsProviderType
+{
+    /// A default implementation, provided when conforming to `MethodProviderType`, `URLProviderType`,
+    /// `BodyProviderType`, and `QueryItemsProviderType`.
+    public var request: NSURLRequest?
+    {
+        return URL?
+            .transformWithComponents({ components in
+                components.queryItems = queryItems
+            })?
+            .buildRequest(method: method, body: body)
     }
 }
 
@@ -62,5 +107,25 @@ extension EndpointType where
                 components.queryItems = queryItems
             })?
             .buildRequest(method: method, headerFields: headerFields)
+    }
+}
+
+// MARK: - MethodProviderType, BodyProviderType, URLProviderType, HeaderFieldsProviderType, & QueryItemsProviderType
+extension EndpointType where
+    Self: MethodProviderType,
+    Self: BodyProviderType,
+    Self: URLProviderType,
+    Self: HeaderFieldsProviderType,
+    Self: QueryItemsProviderType
+{
+    /// A default implementation, provided when conforming to `MethodProviderType`, `BodyProviderType`,
+    /// `URLProviderType`, `HeaderFieldsProviderType`, and `QueryItemsProviderType`.
+    public var request: NSURLRequest?
+    {
+        return URL?
+            .transformWithComponents({ components in
+                components.queryItems = queryItems
+            })?
+            .buildRequest(method: method, headerFields: headerFields, body: body)
     }
 }

@@ -26,6 +26,21 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
         XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
     }
 
+    func testMethodProviderAndBodyProvider()
+    {
+        struct Provider: BaseURLEndpointType, MethodProviderType, BodyProviderType
+        {
+            let method = Method.Post
+            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? BodyType
+        }
+
+        let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/")!)
+        mutable.HTTPBody = "Test".dataUsingEncoding(NSUTF8StringEncoding)
+        mutable.HTTPMethod = "POST"
+
+        XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
+    }
+
     func testMethodProviderAndHeaderFieldsProvider()
     {
         struct Provider: BaseURLEndpointType, MethodProviderType, HeaderFieldsProviderType
@@ -41,7 +56,24 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
         XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
     }
 
-    func testRelativeURLStringProvider()
+    func testMethodProviderBodyProviderAndHeaderFieldsProvider()
+    {
+        struct Provider: BaseURLEndpointType, MethodProviderType, BodyProviderType, HeaderFieldsProviderType
+        {
+            let method = Method.Post
+            let headerFields = ["X-TEST": "TEST"]
+            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? BodyType
+        }
+
+        let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/")!)
+        mutable.HTTPBody = "Test".dataUsingEncoding(NSUTF8StringEncoding)
+        mutable.HTTPMethod = "POST"
+        mutable.setValue("TEST", forHTTPHeaderField: "X-TEST")
+
+        XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
+    }
+
+    func testMethodProviderAndRelativeURLStringProvider()
     {
         struct Provider: BaseURLEndpointType, MethodProviderType, RelativeURLStringProviderType
         {
@@ -55,7 +87,23 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
         XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
     }
 
-    func testRelativeURLStringProviderAndHeaderFieldsProvider()
+    func testMethodProviderBodyProviderAndRelativeURLStringProvider()
+    {
+        struct Provider: BaseURLEndpointType, MethodProviderType, BodyProviderType, RelativeURLStringProviderType
+        {
+            let relativeURLString = "test"
+            let method = Method.Post
+            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? BodyType
+        }
+
+        let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/test")!)
+        mutable.HTTPBody = "Test".dataUsingEncoding(NSUTF8StringEncoding)
+        mutable.HTTPMethod = "POST"
+
+        XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
+    }
+
+    func testMethodProviderRelativeURLStringProviderAndHeaderFieldsProvider()
     {
         struct Provider: BaseURLEndpointType, MethodProviderType, RelativeURLStringProviderType, HeaderFieldsProviderType
         {
@@ -71,7 +119,25 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
         XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
     }
 
-    func testQueryProvider()
+    func testMethodProviderBodyProviderRelativeURLStringProviderAndHeaderFieldsProvider()
+    {
+        struct Provider: BaseURLEndpointType, MethodProviderType, BodyProviderType, RelativeURLStringProviderType, HeaderFieldsProviderType
+        {
+            let relativeURLString = "test"
+            let method = Method.Post
+            let headerFields = ["X-TEST": "TEST"]
+            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? BodyType
+        }
+
+        let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/test")!)
+        mutable.HTTPBody = "Test".dataUsingEncoding(NSUTF8StringEncoding)
+        mutable.HTTPMethod = "POST"
+        mutable.setValue("TEST", forHTTPHeaderField: "X-TEST")
+
+        XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
+    }
+
+    func testMethodProviderAndQueryProvider()
     {
         struct Provider: BaseURLEndpointType, MethodProviderType, QueryItemsProviderType
         {
@@ -85,7 +151,23 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
         XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
     }
 
-    func testQueryProviderAndHeaderFieldsProvider()
+    func testMethodProviderBodyProviderAndQueryProvider()
+    {
+        struct Provider: BaseURLEndpointType, MethodProviderType, BodyProviderType, QueryItemsProviderType
+        {
+            let method = Method.Post
+            let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
+            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? BodyType
+        }
+
+        let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/?foo=bar")!)
+        mutable.HTTPBody = "Test".dataUsingEncoding(NSUTF8StringEncoding)
+        mutable.HTTPMethod = "POST"
+
+        XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
+    }
+
+    func testMethodProviderQueryProviderAndHeaderFieldsProvider()
     {
         struct Provider: BaseURLEndpointType, MethodProviderType, QueryItemsProviderType, HeaderFieldsProviderType
         {
@@ -101,7 +183,25 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
         XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
     }
 
-    func testQueryProviderAndRelativeURLStringProvider()
+    func testMethodProviderBodyProviderQueryProviderAndHeaderFieldsProvider()
+    {
+        struct Provider: BaseURLEndpointType, MethodProviderType, BodyProviderType, QueryItemsProviderType, HeaderFieldsProviderType
+        {
+            let method = Method.Post
+            let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
+            let headerFields = ["X-TEST": "TEST"]
+            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? BodyType
+        }
+
+        let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/?foo=bar")!)
+        mutable.HTTPBody = "Test".dataUsingEncoding(NSUTF8StringEncoding)
+        mutable.HTTPMethod = "POST"
+        mutable.setValue("TEST", forHTTPHeaderField: "X-TEST")
+
+        XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
+    }
+
+    func testMethodProviderQueryProviderAndRelativeURLStringProvider()
     {
         struct Provider: BaseURLEndpointType, MethodProviderType, RelativeURLStringProviderType, QueryItemsProviderType
         {
@@ -116,7 +216,24 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
         XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
     }
 
-    func testQueryProviderHeaderFieldsProviderAndRelativeURLStringProvider()
+    func testMethodProviderBodyProviderQueryProviderAndRelativeURLStringProvider()
+    {
+        struct Provider: BaseURLEndpointType, BodyProviderType, MethodProviderType, RelativeURLStringProviderType, QueryItemsProviderType
+        {
+            let relativeURLString = "test"
+            let method = Method.Post
+            let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
+            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? BodyType
+        }
+
+        let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/test?foo=bar")!)
+        mutable.HTTPBody = "Test".dataUsingEncoding(NSUTF8StringEncoding)
+        mutable.HTTPMethod = "POST"
+
+        XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
+    }
+
+    func testMethodProviderQueryProviderHeaderFieldsProviderAndRelativeURLStringProvider()
     {
         struct Provider:
             BaseURLEndpointType,
@@ -132,6 +249,31 @@ class BaseURLEndpointProviderTypesTests: XCTestCase
         }
 
         let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/test?foo=bar")!)
+        mutable.HTTPMethod = "POST"
+        mutable.setValue("TEST", forHTTPHeaderField: "X-TEST")
+
+        XCTAssertEqual(Provider().requestWithBaseURL(NSURL(string: "http://test.com/")!), mutable)
+    }
+
+    func testMethodProviderBodyProviderQueryProviderHeaderFieldsProviderAndRelativeURLStringProvider()
+    {
+        struct Provider:
+            BaseURLEndpointType,
+            MethodProviderType,
+            BodyProviderType,
+            RelativeURLStringProviderType,
+            QueryItemsProviderType,
+            HeaderFieldsProviderType
+        {
+            let relativeURLString = "test"
+            let method = Method.Post
+            let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
+            let headerFields = ["X-TEST": "TEST"]
+            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? BodyType
+        }
+
+        let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/test?foo=bar")!)
+        mutable.HTTPBody = "Test".dataUsingEncoding(NSUTF8StringEncoding)
         mutable.HTTPMethod = "POST"
         mutable.setValue("TEST", forHTTPHeaderField: "X-TEST")
 

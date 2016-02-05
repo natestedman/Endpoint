@@ -12,6 +12,11 @@ import Foundation
 
 // MARK: - Provider Types
 
+public protocol BodyProviderType
+{
+    var body: BodyType? { get }
+}
+
 /// A type that provides HTTP header fields for a URL request.
 public protocol HeaderFieldsProviderType
 {

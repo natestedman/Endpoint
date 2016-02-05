@@ -24,6 +24,20 @@ extension BaseURLEndpointType where Self: MethodProviderType
     }
 }
 
+// MARK: - MethodProviderType & BodyProviderType
+extension BaseURLEndpointType where Self: MethodProviderType, Self: BodyProviderType
+{
+    /**
+     A default implementation of `BaseURLEndpointType`'s requirement.
+
+     - parameter baseURL: The base URL.
+     */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        return baseURL.buildRequest(method: method, body: body)
+    }
+}
+
 // MARK: - MethodProviderType & HeaderFieldsProviderType
 extension BaseURLEndpointType where Self: MethodProviderType, Self: HeaderFieldsProviderType
 {
@@ -35,6 +49,20 @@ extension BaseURLEndpointType where Self: MethodProviderType, Self: HeaderFields
     public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
     {
         return baseURL.buildRequest(method: method, headerFields: headerFields)
+    }
+}
+
+// MARK: - MethodProviderType, HeaderFieldsProviderType, & BodyProviderType
+extension BaseURLEndpointType where Self: MethodProviderType, Self: HeaderFieldsProviderType, Self: BodyProviderType
+{
+    /**
+     A default implementation of `BaseURLEndpointType`'s requirement.
+
+     - parameter baseURL: The base URL.
+     */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        return baseURL.buildRequest(method: method, headerFields: headerFields, body: body)
     }
 }
 
@@ -50,6 +78,24 @@ extension BaseURLEndpointType where Self: MethodProviderType, Self: RelativeURLS
     {
         return NSURL(string: relativeURLString, relativeToURL: baseURL)?
             .buildRequest(method: method)
+    }
+}
+
+// MARK: - MethodProviderType, RelativeURLStringProviderType, & BodyProviderType
+extension BaseURLEndpointType where
+    Self: MethodProviderType,
+    Self: RelativeURLStringProviderType,
+    Self: BodyProviderType
+{
+    /**
+     A default implementation of `BaseURLEndpointType`'s requirement.
+
+     - parameter baseURL: The base URL.
+     */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        return NSURL(string: relativeURLString, relativeToURL: baseURL)?
+            .buildRequest(method: method, body: body)
     }
 }
 
@@ -71,6 +117,25 @@ extension BaseURLEndpointType where
     }
 }
 
+// MARK: - MethodProviderType, BodyProviderType, HeaderFieldsProviderType, & RelativeURLStringProviderType
+extension BaseURLEndpointType where
+    Self: MethodProviderType,
+    Self: BodyProviderType,
+    Self: HeaderFieldsProviderType,
+    Self: RelativeURLStringProviderType
+{
+    /**
+     A default implementation of `BaseURLEndpointType`'s requirement.
+
+     - parameter baseURL: The base URL.
+     */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        return NSURL(string: relativeURLString, relativeToURL: baseURL)?
+            .buildRequest(method: method, headerFields: headerFields, body: body)
+    }
+}
+
 // MARK: - MethodProviderType & QueryItemsProviderType
 extension BaseURLEndpointType where Self: MethodProviderType, Self: QueryItemsProviderType
 {
@@ -86,6 +151,24 @@ extension BaseURLEndpointType where Self: MethodProviderType, Self: QueryItemsPr
                 components.queryItems = queryItems
             })?
             .buildRequest(method: method)
+    }
+}
+
+// MARK: - MethodProviderType, BodyProviderType, & QueryItemsProviderType
+extension BaseURLEndpointType where Self: MethodProviderType, Self: BodyProviderType, Self: QueryItemsProviderType
+{
+    /**
+     A default implementation of `BaseURLEndpointType`'s requirement.
+
+     - parameter baseURL: The base URL.
+     */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        return baseURL
+            .transformWithComponents({ components in
+                components.queryItems = queryItems
+            })?
+            .buildRequest(method: method, body: body)
     }
 }
 
@@ -110,6 +193,28 @@ extension BaseURLEndpointType where
     }
 }
 
+// MARK: - MethodProviderType, BodyProviderType, HeaderFieldsProviderType, & QueryItemsProviderType
+extension BaseURLEndpointType where
+    Self: MethodProviderType,
+    Self: BodyProviderType,
+    Self: HeaderFieldsProviderType,
+    Self: QueryItemsProviderType
+{
+    /**
+     A default implementation of `BaseURLEndpointType`'s requirement.
+
+     - parameter baseURL: The base URL.
+     */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        return baseURL
+            .transformWithComponents({ components in
+                components.queryItems = queryItems
+            })?
+            .buildRequest(method: method, headerFields: headerFields, body: body)
+    }
+}
+
 // MARK: - MethodProviderType, QueryItemsProviderType, & RelativeURLStringProviderType
 extension BaseURLEndpointType where
     Self: MethodProviderType,
@@ -128,6 +233,28 @@ extension BaseURLEndpointType where
                 components.queryItems = queryItems
             })?
             .buildRequest(method: method)
+    }
+}
+
+// MARK: - MethodProviderType, BodyProviderType, QueryItemsProviderType, & RelativeURLStringProviderType
+extension BaseURLEndpointType where
+    Self: MethodProviderType,
+    Self: BodyProviderType,
+    Self: RelativeURLStringProviderType,
+    Self: QueryItemsProviderType
+{
+    /**
+     A default implementation of `BaseURLEndpointType`'s requirement.
+
+     - parameter baseURL: The base URL.
+     */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        return NSURL(string: relativeURLString, relativeToURL: baseURL)?
+            .transformWithComponents({ components in
+                components.queryItems = queryItems
+            })?
+            .buildRequest(method: method, body: body)
     }
 }
 
@@ -150,5 +277,28 @@ extension BaseURLEndpointType where
                 components.queryItems = queryItems
             })?
             .buildRequest(method: method, headerFields: headerFields)
+    }
+}
+
+// MARK: - MethodProviderType, BodyProviderType, HeaderFieldsProviderType, QueryItemsProviderType, & RelativeURLStringProviderType
+extension BaseURLEndpointType where
+    Self: MethodProviderType,
+    Self: BodyProviderType,
+    Self: HeaderFieldsProviderType,
+    Self: RelativeURLStringProviderType,
+    Self: QueryItemsProviderType
+{
+    /**
+     A default implementation of `BaseURLEndpointType`'s requirement.
+
+     - parameter baseURL: The base URL.
+     */
+    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    {
+        return NSURL(string: relativeURLString, relativeToURL: baseURL)?
+            .transformWithComponents({ components in
+                components.queryItems = queryItems
+            })?
+            .buildRequest(method: method, headerFields: headerFields, body: body)
     }
 }
