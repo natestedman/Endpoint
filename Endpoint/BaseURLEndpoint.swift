@@ -13,7 +13,7 @@ import Foundation
 /// A relative URL endpoint, which provides a URL request given a base URL.
 ///
 /// This type can be used to implement switchable backends, e.g. production, staging, development.
-public protocol BaseURLEndpointType
+public protocol BaseURLEndpoint
 {
     // MARK: - Requests
 
@@ -25,7 +25,7 @@ public protocol BaseURLEndpointType
     func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
 }
 
-extension BaseURLEndpointType
+extension BaseURLEndpoint
 {
     // MARK: - Endpoint
 

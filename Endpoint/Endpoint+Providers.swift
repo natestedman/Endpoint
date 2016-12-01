@@ -10,14 +10,14 @@
 
 import Foundation
 
-extension EndpointType where Self: MethodProviderType, Self: URLProviderType
+extension Endpoint where Self: MethodProvider, Self: URLProvider
 {
     /// A default implementation.
     public var request: NSURLRequest?
     {
         var URL = self.URL
 
-        if let provider = self as? QueryItemsProviderType
+        if let provider = self as? QueryItemsProvider
         {
             URL = URL?.transformWithComponents({ components in
                 components.queryItems = provider.queryItems
@@ -26,8 +26,8 @@ extension EndpointType where Self: MethodProviderType, Self: URLProviderType
 
         return URL?.buildRequest(
             method: method,
-            headerFields: (self as? HeaderFieldsProviderType)?.headerFields,
-            body: (self as? BodyProviderType)?.body
+            headerFields: (self as? HeaderFieldsProvider)?.headerFields,
+            body: (self as? BodyProvider)?.body
         )
     }
 }

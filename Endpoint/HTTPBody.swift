@@ -11,7 +11,7 @@
 import Foundation
 
 /// A protocol for providing HTTP body data to requests.
-public protocol BodyType
+public protocol HTTPBody
 {
     /**
      Applies the receiver to the specified URL request.
@@ -22,7 +22,7 @@ public protocol BodyType
 }
 
 /// `NSData` is extended to conform to `BodyType`.
-extension NSData: BodyType
+extension NSData: HTTPBody
 {
     /**
      Applies the data to the specified URL request, setting the `HTTPBody` property.
@@ -36,7 +36,7 @@ extension NSData: BodyType
 }
 
 /// `NSInputStream` is extended to conform to `BodyType`.
-extension NSInputStream: BodyType
+extension NSInputStream: HTTPBody
 {
     /**
      Applies the stream to the specified URL request, setting the `HTTPBodyStream` property.

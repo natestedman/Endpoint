@@ -11,11 +11,11 @@
 import Endpoint
 import XCTest
 
-class EndpointProviderTypesTests: XCTestCase
+class EndpointProvidersTests: XCTestCase
 {
     func testMethodProviderAndURLProvider()
     {
-        struct Provider: EndpointType, MethodProviderType, URLProviderType
+        struct Provider: Endpoint, MethodProvider, URLProvider
         {
             let method = Method.Post
             let URL = NSURL(string: "http://test.com/")
@@ -29,11 +29,11 @@ class EndpointProviderTypesTests: XCTestCase
 
     func testMethodProviderBodyProviderAndURLProvider()
     {
-        struct Provider: EndpointType, BodyProviderType, MethodProviderType, URLProviderType
+        struct Provider: Endpoint, BodyProvider, MethodProvider, URLProvider
         {
             let method = Method.Post
             let URL = NSURL(string: "http://test.com/")
-            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? BodyType
+            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? HTTPBody
         }
 
         let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/")!)
@@ -45,7 +45,7 @@ class EndpointProviderTypesTests: XCTestCase
 
     func testMethodProviderHeaderFieldsProviderAndURLProvider()
     {
-        struct Provider: EndpointType, MethodProviderType, URLProviderType, HeaderFieldsProviderType
+        struct Provider: Endpoint, MethodProvider, URLProvider, HeaderFieldsProvider
         {
             let method = Method.Post
             let URL = NSURL(string: "http://test.com/")
@@ -61,12 +61,12 @@ class EndpointProviderTypesTests: XCTestCase
 
     func testMethodProviderBodyProviderHeaderFieldsProviderAndURLProvider()
     {
-        struct Provider: EndpointType, MethodProviderType, BodyProviderType, URLProviderType, HeaderFieldsProviderType
+        struct Provider: Endpoint, MethodProvider, BodyProvider, URLProvider, HeaderFieldsProvider
         {
             let method = Method.Post
             let URL = NSURL(string: "http://test.com/")
             let headerFields = ["X-TEST": "TEST"]
-            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? BodyType
+            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? HTTPBody
         }
 
         let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/")!)
@@ -79,7 +79,7 @@ class EndpointProviderTypesTests: XCTestCase
 
     func testMethodProviderURLProviderAndQueryItemsProvider()
     {
-        struct Provider: EndpointType, MethodProviderType, URLProviderType, QueryItemsProviderType
+        struct Provider: Endpoint, MethodProvider, URLProvider, QueryItemsProvider
         {
             let method = Method.Post
             let URL = NSURL(string: "http://test.com/")
@@ -94,12 +94,12 @@ class EndpointProviderTypesTests: XCTestCase
 
     func testMethodProviderBodyProviderURLProviderAndQueryItemsProvider()
     {
-        struct Provider: EndpointType, MethodProviderType, BodyProviderType, URLProviderType, QueryItemsProviderType
+        struct Provider: Endpoint, MethodProvider, BodyProvider, URLProvider, QueryItemsProvider
         {
             let method = Method.Post
             let URL = NSURL(string: "http://test.com/")
             let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
-            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? BodyType
+            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? HTTPBody
         }
 
         let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/?foo=bar")!)
@@ -111,7 +111,7 @@ class EndpointProviderTypesTests: XCTestCase
 
     func testMethodProviderURLProviderHeaderFieldsProviderAndQueryItemsProvider()
     {
-        struct Provider: EndpointType, MethodProviderType, URLProviderType, QueryItemsProviderType, HeaderFieldsProviderType
+        struct Provider: Endpoint, MethodProvider, URLProvider, QueryItemsProvider, HeaderFieldsProvider
         {
             let method = Method.Post
             let URL = NSURL(string: "http://test.com/")
@@ -129,18 +129,18 @@ class EndpointProviderTypesTests: XCTestCase
     func testMethodProviderBodyProviderURLProviderHeaderFieldsProviderAndQueryItemsProvider()
     {
         struct Provider:
-            EndpointType,
-            BodyProviderType,
-            MethodProviderType,
-            URLProviderType,
-            QueryItemsProviderType,
-            HeaderFieldsProviderType
+            Endpoint,
+            BodyProvider,
+            MethodProvider,
+            URLProvider,
+            QueryItemsProvider,
+            HeaderFieldsProvider
         {
             let method = Method.Post
             let URL = NSURL(string: "http://test.com/")
             let queryItems = [NSURLQueryItem(name: "foo", value: "bar")]
             let headerFields = ["X-TEST": "TEST"]
-            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? BodyType
+            let body = "Test".dataUsingEncoding(NSUTF8StringEncoding) as? HTTPBody
         }
 
         let mutable = NSMutableURLRequest(URL: NSURL(string: "http://test.com/?foo=bar")!)

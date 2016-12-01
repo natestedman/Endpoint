@@ -10,10 +10,10 @@
 
 import Foundation
 
-extension BaseURLEndpointType where Self: MethodProviderType
+extension BaseURLEndpoint where Self: MethodProvider
 {
     /**
-     A default implementation of `BaseURLEndpointType`'s requirement.
+     A default implementation of `BaseURLEndpoint`'s requirement.
 
      - parameter baseURL: The base URL.
      */
@@ -21,12 +21,12 @@ extension BaseURLEndpointType where Self: MethodProviderType
     {
         var URL: NSURL? = baseURL
 
-        if let provider = self as? RelativeURLStringProviderType
+        if let provider = self as? RelativeURLStringProvider
         {
             URL = NSURL(string: provider.relativeURLString, relativeToURL: baseURL)
         }
 
-        if let provider = self as? QueryItemsProviderType
+        if let provider = self as? QueryItemsProvider
         {
             URL = URL?.transformWithComponents({ components in
                 components.queryItems = provider.queryItems
@@ -35,8 +35,8 @@ extension BaseURLEndpointType where Self: MethodProviderType
 
         return URL?.buildRequest(
             method: method,
-            headerFields: (self as? HeaderFieldsProviderType)?.headerFields,
-            body: (self as? BodyProviderType)?.body
+            headerFields: (self as? HeaderFieldsProvider)?.headerFields,
+            body: (self as? BodyProvider)?.body
         )
     }
 }

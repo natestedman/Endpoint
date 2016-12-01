@@ -11,7 +11,7 @@
 import Foundation
 
 /// An endpoint, which provides a URL request to load itself.
-public protocol EndpointType
+public protocol Endpoint
 {
     // MARK: - Requests
 

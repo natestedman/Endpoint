@@ -13,42 +13,42 @@ import Foundation
 // MARK: - Provider Types
 
 /// A type that provides an HTTP body for a URL request.
-public protocol BodyProviderType
+public protocol BodyProvider
 {
     /// The HTTP body for the request.
-    var body: BodyType? { get }
+    var body: HTTPBody? { get }
 }
 
 /// A type that provides HTTP header fields for a URL request.
-public protocol HeaderFieldsProviderType
+public protocol HeaderFieldsProvider
 {
     /// The HTTP header fields.
     var headerFields: [String:String] { get }
 }
 
 /// A type that provides a relative URL string for a URL request.
-public protocol RelativeURLStringProviderType
+public protocol RelativeURLStringProvider
 {
     /// The relative URL string.
     var relativeURLString: String { get }
 }
 
 /// A types that provides an HTTP method for a URL request.
-public protocol MethodProviderType
+public protocol MethodProvider
 {
     /// The HTTP method of the URL.
     var method: Method { get }
 }
 
 /// A type that provides query items for a URL request.
-public protocol QueryItemsProviderType
+public protocol QueryItemsProvider
 {
     /// The query items for the URL.
     var queryItems: [NSURLQueryItem] { get }
 }
 
 /// A type that provides a URL for a URL request.
-public protocol URLProviderType
+public protocol URLProvider
 {
     /// The URL.
     var URL: NSURL? { get }

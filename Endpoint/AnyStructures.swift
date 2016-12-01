@@ -10,9 +10,9 @@
 
 import Foundation
 
-// MARK: - EndpointType
+// MARK: - Endpoint
 
-/// A type-erased `EndpointType`.
+/// A type-erased `Endpoint`.
 public struct AnyEndpoint
 {
     private let requestFunction: () -> NSURLRequest?
@@ -34,13 +34,13 @@ extension AnyEndpoint
 
      - parameter wrapped: The endpoint to wrap.
      */
-    public init(_ wrapped: EndpointType)
+    public init(_ wrapped: Endpoint)
     {
         self.init(requestFunction: { wrapped.request })
     }
 }
 
-extension AnyEndpoint: EndpointType
+extension AnyEndpoint: Endpoint
 {
     // MARK: - Request
 
@@ -51,9 +51,9 @@ extension AnyEndpoint: EndpointType
     }
 }
 
-// MARK: BaseURLEndpointType
+// MARK: BaseURLEndpoint
 
-/// A type-erased `BaseURLEndpointType`.
+/// A type-erased `BaseURLEndpoint`.
 public struct AnyBaseURLEndpoint
 {
     private let requestFunction: NSURL -> NSURLRequest?
@@ -75,13 +75,13 @@ extension AnyBaseURLEndpoint
 
      - parameter wrapped: The base URL endpoint to wrap.
      */
-    public init(_ wrapped: BaseURLEndpointType)
+    public init(_ wrapped: BaseURLEndpoint)
     {
         self.init(requestFunction: wrapped.requestWithBaseURL)
     }
 }
 
-extension AnyBaseURLEndpoint: BaseURLEndpointType
+extension AnyBaseURLEndpoint: BaseURLEndpoint
 {
     // MARK: - Request
 

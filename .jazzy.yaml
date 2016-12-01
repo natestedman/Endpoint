@@ -1,26 +1,26 @@
 custom_categories:
-    - name: Endpoint Types
+    - name: Endpoints
       children:
-          - EndpointType
-          - BaseURLEndpointType
+          - Endpoint
+          - BaseURLEndpoint
           
     - name: Type Erasure
       children:
         - AnyEndpoint
         - AnyBaseURLEndpoint
     
-    - name: Provider Types
+    - name: Providers
       children:
-        - BodyProviderType
-        - HeaderFieldsProviderType
-        - MethodProviderType
-        - QueryItemsProviderType
-        - RelativeURLStringProviderType
-        - URLProviderType
+        - BodyProvider
+        - HeaderFieldsProvider
+        - MethodProvider
+        - QueryItemsProvider
+        - RelativeURLStringProvider
+        - URLProvider
         
     - name: Body Data
       children:
-        - BodyType
+        - HTTPBody
         - NSData
         - NSInputStream
 
