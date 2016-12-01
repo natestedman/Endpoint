@@ -13,7 +13,7 @@ import Foundation
 extension Endpoint where Self: MethodProvider, Self: URLProvider
 {
     /// A default implementation.
-    public var request: NSURLRequest?
+    public var request: URLRequest?
     {
         var URL = self.URL
 
@@ -28,6 +28,6 @@ extension Endpoint where Self: MethodProvider, Self: URLProvider
             method: method,
             headerFields: (self as? HeaderFieldsProvider)?.headerFields,
             body: (self as? BodyProvider)?.body
-        )
+        ) as URLRequest?
     }
 }

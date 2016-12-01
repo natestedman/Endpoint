@@ -18,11 +18,11 @@ custom_categories:
         - RelativeURLStringProvider
         - URLProvider
         
-    - name: Body Data
+    - name: HTTP Data
       children:
         - HTTPBody
-        - NSData
-        - NSInputStream
+        - Data
+        - InputStream
 
     - name: HTTP Methods
       children:

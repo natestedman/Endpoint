@@ -12,29 +12,29 @@
 public enum Method: String
 {
     /// `OPTIONS`.
-    case Options = "OPTIONS"
+    case options = "OPTIONS"
 
     /// `GET`.
-    case Get = "GET"
+    case get = "GET"
 
     /// `HEAD`.
-    case Head = "HEAD"
+    case head = "HEAD"
 
     /// `POST`.
-    case Post = "POST"
+    case post = "POST"
 
     /// `PUT`.
-    case Put = "PUT"
+    case put = "PUT"
 
     /// `PATCH`.
-    case Patch = "PATCH"
+    case patch = "PATCH"
 
     /// `DELETE`.
-    case Delete = "DELETE"
+    case delete = "DELETE"
 
     /// `TRACE`.
-    case Trace = "TRACE"
+    case trace = "TRACE"
 
     /// `CONNECT`.
-    case Connect = "CONNECT"
+    case connect = "CONNECT"
 }

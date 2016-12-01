@@ -22,7 +22,7 @@ public protocol BaseURLEndpoint
 
     - parameter baseURL: The base URL.
     */
-    func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    func request(baseURL: URL) -> URLRequest?
 }
 
 extension BaseURLEndpoint
@@ -34,8 +34,8 @@ extension BaseURLEndpoint
 
      - parameter baseURL: The base URL.
      */
-    public func endpointWithBaseURL(baseURL: NSURL) -> AnyEndpoint
+    public func endpoint(baseURL: URL) -> AnyEndpoint
     {
-        return AnyEndpoint { self.requestWithBaseURL(baseURL) }
+        return AnyEndpoint { self.request(baseURL: baseURL) }
     }
 }

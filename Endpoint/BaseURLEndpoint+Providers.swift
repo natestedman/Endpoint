@@ -17,13 +17,13 @@ extension BaseURLEndpoint where Self: MethodProvider
 
      - parameter baseURL: The base URL.
      */
-    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    public func request(baseURL: URL) -> URLRequest?
     {
-        var URL: NSURL? = baseURL
+        var URL: Foundation.URL? = baseURL
 
         if let provider = self as? RelativeURLStringProvider
         {
-            URL = NSURL(string: provider.relativeURLString, relativeToURL: baseURL)
+            URL = Foundation.URL(string: provider.relativeURLString, relativeTo: baseURL)
         }
 
         if let provider = self as? QueryItemsProvider

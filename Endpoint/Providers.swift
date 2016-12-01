@@ -44,12 +44,12 @@ public protocol MethodProvider
 public protocol QueryItemsProvider
 {
     /// The query items for the URL.
-    var queryItems: [NSURLQueryItem] { get }
+    var queryItems: [URLQueryItem] { get }
 }
 
 /// A type that provides a URL for a URL request.
 public protocol URLProvider
 {
     /// The URL.
-    var URL: NSURL? { get }
+    var URL: Foundation.URL? { get }
 }

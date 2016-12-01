@@ -16,5 +16,5 @@ public protocol Endpoint
     // MARK: - Requests
 
     /// A request to load the endpoint.
-    var request: NSURLRequest? { get }
+    var request: URLRequest? { get }
 }

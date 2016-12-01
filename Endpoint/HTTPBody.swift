@@ -18,33 +18,33 @@ public protocol HTTPBody
 
      - parameter request: The URL request.
      */
-    func applyToMutableURLRequest(request: NSMutableURLRequest)
+    func apply(to URLRequest: inout URLRequest)
 }
 
-/// `NSData` is extended to conform to `BodyType`.
-extension NSData: HTTPBody
+/// `Data` is extended to conform to `BodyType`.
+extension Data: HTTPBody
 {
     /**
      Applies the data to the specified URL request, setting the `HTTPBody` property.
 
      - parameter request: The URL request.
      */
-    public func applyToMutableURLRequest(request: NSMutableURLRequest)
+    public func apply(to request: inout URLRequest)
     {
-        request.HTTPBody = self
+        request.httpBody = self
     }
 }
 
-/// `NSInputStream` is extended to conform to `BodyType`.
-extension NSInputStream: HTTPBody
+/// `InputStream` is extended to conform to `BodyType`.
+extension InputStream: HTTPBody
 {
     /**
      Applies the stream to the specified URL request, setting the `HTTPBodyStream` property.
 
      - parameter request: The URL request.
      */
-    public func applyToMutableURLRequest(request: NSMutableURLRequest)
+    public func apply(to request: inout URLRequest)
     {
-        request.HTTPBodyStream = self
+        request.httpBodyStream = self
     }
 }

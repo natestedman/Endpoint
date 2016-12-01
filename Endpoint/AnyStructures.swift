@@ -15,11 +15,11 @@ import Foundation
 /// A type-erased `Endpoint`.
 public struct AnyEndpoint
 {
-    private let requestFunction: () -> NSURLRequest?
+    fileprivate let requestFunction: () -> URLRequest?
 
     // MARK: - Initialization
 
-    internal init(requestFunction: () -> NSURLRequest?)
+    internal init(requestFunction: @escaping () -> URLRequest?)
     {
         self.requestFunction = requestFunction
     }
@@ -45,7 +45,7 @@ extension AnyEndpoint: Endpoint
     // MARK: - Request
 
     /// A request to load the endpoint.
-    public var request: NSURLRequest?
+    public var request: URLRequest?
     {
         return requestFunction()
     }
@@ -56,11 +56,11 @@ extension AnyEndpoint: Endpoint
 /// A type-erased `BaseURLEndpoint`.
 public struct AnyBaseURLEndpoint
 {
-    private let requestFunction: NSURL -> NSURLRequest?
+    fileprivate let requestFunction: (URL) -> URLRequest?
 
     // MARK: - Initialization
 
-    internal init(requestFunction: NSURL -> NSURLRequest?)
+    internal init(requestFunction: @escaping (URL) -> URLRequest?)
     {
         self.requestFunction = requestFunction
     }
@@ -77,7 +77,7 @@ extension AnyBaseURLEndpoint
      */
     public init(_ wrapped: BaseURLEndpoint)
     {
-        self.init(requestFunction: wrapped.requestWithBaseURL)
+        self.init(requestFunction: wrapped.request)
     }
 }
 
@@ -90,7 +90,7 @@ extension AnyBaseURLEndpoint: BaseURLEndpoint
 
     - parameter baseURL: The base URL.
     */
-    public func requestWithBaseURL(baseURL: NSURL) -> NSURLRequest?
+    public func request(baseURL: URL) -> URLRequest?
     {
         return requestFunction(baseURL)
     }

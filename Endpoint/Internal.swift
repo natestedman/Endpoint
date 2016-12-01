@@ -10,27 +10,26 @@
 
 import Foundation
 
-extension NSURL
+extension URL
 {
-    internal func transformWithComponents(@noescape transform: NSURLComponents -> ()) -> NSURL?
+    internal func transformWithComponents(_ transform: (inout URLComponents) -> ()) -> URL?
     {
-        return NSURLComponents(URL: self, resolvingAgainstBaseURL: true).flatMap({ components in
-            transform(components)
-            return components.URL
-        })
+        guard var components = URLComponents(url: self, resolvingAgainstBaseURL: true) else {
+            return nil
+        }
+
+        transform(&components)
+
+        return components.url
     }
 
-    internal func buildRequest(method method: Method, headerFields: [String:String]? = nil, body: HTTPBody? = nil)
-        -> NSURLRequest
+    internal func buildRequest(method: Method, headerFields: [String:String]? = nil, body: HTTPBody? = nil)
+        -> URLRequest
     {
-        let request = NSMutableURLRequest(URL: self)
-        request.HTTPMethod = method.rawValue
+        var request = URLRequest(url: self)
+        request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headerFields
-
-        if let b = body
-        {
-            b.applyToMutableURLRequest(request)
-        }
+        body?.apply(to: &request)
 
         return request
     }
