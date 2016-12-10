@@ -15,16 +15,16 @@ extension Endpoint where Self: MethodProvider, Self: URLProvider
     /// A default implementation.
     public var request: URLRequest?
     {
-        var URL = self.URL
+        var url = self.url
 
         if let provider = self as? QueryItemsProvider
         {
-            URL = URL?.transformWithComponents({ components in
+            url = url?.transformWithComponents({ components in
                 components.queryItems = provider.queryItems
             })
         }
 
-        return URL?.buildRequest(
+        return url?.buildRequest(
             method: method,
             headerFields: (self as? HeaderFieldsProvider)?.headerFields,
             body: (self as? BodyProvider)?.body

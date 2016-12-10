@@ -51,5 +51,5 @@ public protocol QueryItemsProvider
 public protocol URLProvider
 {
     /// The URL.
-    var URL: Foundation.URL? { get }
+    var url: URL? { get }
 }

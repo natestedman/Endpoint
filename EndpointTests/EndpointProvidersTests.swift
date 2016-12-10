@@ -18,7 +18,7 @@ class EndpointProvidersTests: XCTestCase
         struct Provider: Endpoint, MethodProvider, URLProvider
         {
             let method = Method.post
-            let URL = Foundation.URL(string: "http://test.com/")
+            let url = URL(string: "http://test.com/")
         }
 
         var mutable = URLRequest(url: URL(string: "http://test.com/")!)
@@ -32,7 +32,7 @@ class EndpointProvidersTests: XCTestCase
         struct Provider: Endpoint, BodyProvider, MethodProvider, URLProvider
         {
             let method = Method.post
-            let URL = Foundation.URL(string: "http://test.com/")
+            let url = URL(string: "http://test.com/")
             let body = "Test".data(using: String.Encoding.utf8) as? HTTPBody
         }
 
@@ -48,7 +48,7 @@ class EndpointProvidersTests: XCTestCase
         struct Provider: Endpoint, MethodProvider, URLProvider, HeaderFieldsProvider
         {
             let method = Method.post
-            let URL = Foundation.URL(string: "http://test.com/")
+            let url = URL(string: "http://test.com/")
             let headerFields = ["X-TEST": "TEST"]
         }
 
@@ -64,7 +64,7 @@ class EndpointProvidersTests: XCTestCase
         struct Provider: Endpoint, MethodProvider, BodyProvider, URLProvider, HeaderFieldsProvider
         {
             let method = Method.post
-            let URL = Foundation.URL(string: "http://test.com/")
+            let url = URL(string: "http://test.com/")
             let headerFields = ["X-TEST": "TEST"]
             let body = "Test".data(using: String.Encoding.utf8) as? HTTPBody
         }
@@ -82,7 +82,7 @@ class EndpointProvidersTests: XCTestCase
         struct Provider: Endpoint, MethodProvider, URLProvider, QueryItemsProvider
         {
             let method = Method.post
-            let URL = Foundation.URL(string: "http://test.com/")
+            let url = URL(string: "http://test.com/")
             let queryItems = [URLQueryItem(name: "foo", value: "bar")]
         }
 
@@ -97,7 +97,7 @@ class EndpointProvidersTests: XCTestCase
         struct Provider: Endpoint, MethodProvider, BodyProvider, URLProvider, QueryItemsProvider
         {
             let method = Method.post
-            let URL = Foundation.URL(string: "http://test.com/")
+            let url = URL(string: "http://test.com/")
             let queryItems = [URLQueryItem(name: "foo", value: "bar")]
             let body = "Test".data(using: String.Encoding.utf8) as? HTTPBody
         }
@@ -114,7 +114,7 @@ class EndpointProvidersTests: XCTestCase
         struct Provider: Endpoint, MethodProvider, URLProvider, QueryItemsProvider, HeaderFieldsProvider
         {
             let method = Method.post
-            let URL = Foundation.URL(string: "http://test.com/")
+            let url = URL(string: "http://test.com/")
             let queryItems = [URLQueryItem(name: "foo", value: "bar")]
             let headerFields = ["X-TEST": "TEST"]
         }
@@ -137,7 +137,7 @@ class EndpointProvidersTests: XCTestCase
             HeaderFieldsProvider
         {
             let method = Method.post
-            let URL = Foundation.URL(string: "http://test.com/")
+            let url = URL(string: "http://test.com/")
             let queryItems = [URLQueryItem(name: "foo", value: "bar")]
             let headerFields = ["X-TEST": "TEST"]
             let body = "Test".data(using: String.Encoding.utf8) as? HTTPBody
