@@ -13,11 +13,11 @@ import XCTest
 
 class BaseURLEndpointProvidersTests: XCTestCase
 {
-    func testMethodProvider()
+    func testHTTPMethodProvider()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider
         {
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
         }
 
         var mutable = URLRequest(url: URL(string: "http://test.com/")!)
@@ -26,11 +26,11 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderAndBodyProvider()
+    func testHTTPMethodProviderAndBodyProvider()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider, BodyProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider, BodyProvider
         {
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let body = "Test".data(using: String.Encoding.utf8) as? HTTPBody
         }
 
@@ -41,11 +41,11 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderAndHeaderFieldsProvider()
+    func testHTTPMethodProviderAndHeaderFieldsProvider()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider, HeaderFieldsProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider, HeaderFieldsProvider
         {
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let headerFields = ["X-TEST": "TEST"]
         }
 
@@ -56,11 +56,11 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderBodyProviderAndHeaderFieldsProvider()
+    func testHTTPMethodProviderBodyProviderAndHeaderFieldsProvider()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider, BodyProvider, HeaderFieldsProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider, BodyProvider, HeaderFieldsProvider
         {
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let headerFields = ["X-TEST": "TEST"]
             let body = "Test".data(using: String.Encoding.utf8) as? HTTPBody
         }
@@ -73,12 +73,12 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderAndRelativeURLStringProvider()
+    func testHTTPMethodProviderAndRelativeURLStringProvider()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider, RelativeURLStringProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider, RelativeURLStringProvider
         {
             let relativeURLString = "test"
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
         }
 
         var mutable = URLRequest(url: URL(string: "http://test.com/test")!)
@@ -87,12 +87,12 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderBodyProviderAndRelativeURLStringProvider()
+    func testHTTPMethodProviderBodyProviderAndRelativeURLStringProvider()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider, BodyProvider, RelativeURLStringProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider, BodyProvider, RelativeURLStringProvider
         {
             let relativeURLString = "test"
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let body = "Test".data(using: String.Encoding.utf8) as? HTTPBody
         }
 
@@ -103,12 +103,12 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderRelativeURLStringProviderAndHeaderFieldsProvider()
+    func testHTTPMethodProviderRelativeURLStringProviderAndHeaderFieldsProvider()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider, RelativeURLStringProvider, HeaderFieldsProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider, RelativeURLStringProvider, HeaderFieldsProvider
         {
             let relativeURLString = "test"
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let headerFields = ["X-TEST": "TEST"]
         }
 
@@ -119,12 +119,12 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderBodyProviderRelativeURLStringProviderAndHeaderFieldsProvider()
+    func testHTTPMethodProviderBodyProviderRelativeURLStringProviderAndHeaderFieldsProvider()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider, BodyProvider, RelativeURLStringProvider, HeaderFieldsProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider, BodyProvider, RelativeURLStringProvider, HeaderFieldsProvider
         {
             let relativeURLString = "test"
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let headerFields = ["X-TEST": "TEST"]
             let body = "Test".data(using: String.Encoding.utf8) as? HTTPBody
         }
@@ -137,11 +137,11 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderAndQueryProvider()
+    func testHTTPMethodProviderAndQueryProvider()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider, QueryItemsProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider, QueryItemsProvider
         {
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let queryItems = [URLQueryItem(name: "foo", value: "bar")]
         }
 
@@ -151,11 +151,11 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderBodyProviderAndQueryProvider()
+    func testHTTPMethodProviderBodyProviderAndQueryProvider()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider, BodyProvider, QueryItemsProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider, BodyProvider, QueryItemsProvider
         {
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let queryItems = [URLQueryItem(name: "foo", value: "bar")]
             let body = "Test".data(using: String.Encoding.utf8) as? HTTPBody
         }
@@ -167,11 +167,11 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderQueryProviderAndHeaderFieldsProvider()
+    func testHTTPMethodProviderQueryProviderAndHeaderFieldsProvider()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider, QueryItemsProvider, HeaderFieldsProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider, QueryItemsProvider, HeaderFieldsProvider
         {
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let queryItems = [URLQueryItem(name: "foo", value: "bar")]
             let headerFields = ["X-TEST": "TEST"]
         }
@@ -183,11 +183,11 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderBodyProviderQueryProviderAndHeaderFieldsProvider()
+    func testHTTPMethodProviderBodyProviderQueryProviderAndHeaderFieldsProvider()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider, BodyProvider, QueryItemsProvider, HeaderFieldsProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider, BodyProvider, QueryItemsProvider, HeaderFieldsProvider
         {
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let queryItems = [URLQueryItem(name: "foo", value: "bar")]
             let headerFields = ["X-TEST": "TEST"]
             let body = "Test".data(using: String.Encoding.utf8) as? HTTPBody
@@ -201,12 +201,12 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderQueryProviderAndRelativeURLStringProvider()
+    func testHTTPMethodProviderQueryProviderAndRelativeURLStringProvider()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider, RelativeURLStringProvider, QueryItemsProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider, RelativeURLStringProvider, QueryItemsProvider
         {
             let relativeURLString = "test"
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let queryItems = [URLQueryItem(name: "foo", value: "bar")]
         }
 
@@ -216,12 +216,12 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderBodyProviderQueryProviderAndRelativeURLStringProvider()
+    func testHTTPMethodProviderBodyProviderQueryProviderAndRelativeURLStringProvider()
     {
-        struct Provider: BaseURLEndpoint, BodyProvider, MethodProvider, RelativeURLStringProvider, QueryItemsProvider
+        struct Provider: BaseURLEndpoint, BodyProvider, HTTPMethodProvider, RelativeURLStringProvider, QueryItemsProvider
         {
             let relativeURLString = "test"
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let queryItems = [URLQueryItem(name: "foo", value: "bar")]
             let body = "Test".data(using: String.Encoding.utf8) as? HTTPBody
         }
@@ -233,17 +233,17 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderQueryProviderHeaderFieldsProviderAndRelativeURLStringProvider()
+    func testHTTPMethodProviderQueryProviderHeaderFieldsProviderAndRelativeURLStringProvider()
     {
         struct Provider:
             BaseURLEndpoint,
-            MethodProvider,
+            HTTPMethodProvider,
             RelativeURLStringProvider,
             QueryItemsProvider,
             HeaderFieldsProvider
         {
             let relativeURLString = "test"
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let queryItems = [URLQueryItem(name: "foo", value: "bar")]
             let headerFields = ["X-TEST": "TEST"]
         }
@@ -255,18 +255,18 @@ class BaseURLEndpointProvidersTests: XCTestCase
         XCTAssertEqual(Provider().request(baseURL: URL(string: "http://test.com/")!), mutable)
     }
 
-    func testMethodProviderBodyProviderQueryProviderHeaderFieldsProviderAndRelativeURLStringProvider()
+    func testHTTPMethodProviderBodyProviderQueryProviderHeaderFieldsProviderAndRelativeURLStringProvider()
     {
         struct Provider:
             BaseURLEndpoint,
-            MethodProvider,
+            HTTPMethodProvider,
             BodyProvider,
             RelativeURLStringProvider,
             QueryItemsProvider,
             HeaderFieldsProvider
         {
             let relativeURLString = "test"
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let queryItems = [URLQueryItem(name: "foo", value: "bar")]
             let headerFields = ["X-TEST": "TEST"]
             let body = "Test".data(using: String.Encoding.utf8) as? HTTPBody
@@ -282,10 +282,10 @@ class BaseURLEndpointProvidersTests: XCTestCase
 
     func testManualImplementation()
     {
-        struct Provider: BaseURLEndpoint, MethodProvider, RelativeURLStringProvider, QueryItemsProvider
+        struct Provider: BaseURLEndpoint, HTTPMethodProvider, RelativeURLStringProvider, QueryItemsProvider
         {
             let relativeURLString = "test"
-            let method = Method.post
+            let httpMethod = HTTPMethod.post
             let queryItems = [URLQueryItem(name: "foo", value: "bar")]
 
             fileprivate func request(baseURL: URL) -> URLRequest?

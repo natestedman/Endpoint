@@ -23,11 +23,11 @@ extension URL
         return components.url
     }
 
-    internal func buildRequest(method: Method, headerFields: [String:String]? = nil, body: HTTPBody? = nil)
+    internal func buildRequest(httpMethod: HTTPMethod, headerFields: [String:String]? = nil, body: HTTPBody? = nil)
         -> URLRequest
     {
         var request = URLRequest(url: self)
-        request.httpMethod = method.rawValue
+        request.httpMethod = httpMethod.rawValue
         request.allHTTPHeaderFields = headerFields
         body?.apply(to: &request)
 

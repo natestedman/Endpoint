@@ -10,7 +10,7 @@
 
 import Foundation
 
-extension BaseURLEndpoint where Self: MethodProvider
+extension BaseURLEndpoint where Self: HTTPMethodProvider
 {
     /**
      A default implementation of `BaseURLEndpoint`'s requirement.
@@ -34,7 +34,7 @@ extension BaseURLEndpoint where Self: MethodProvider
         }
 
         return URL?.buildRequest(
-            method: method,
+            httpMethod: httpMethod,
             headerFields: (self as? HeaderFieldsProvider)?.headerFields,
             body: (self as? BodyProvider)?.body
         )

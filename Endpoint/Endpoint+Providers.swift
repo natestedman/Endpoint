@@ -10,7 +10,7 @@
 
 import Foundation
 
-extension Endpoint where Self: MethodProvider, Self: URLProvider
+extension Endpoint where Self: HTTPMethodProvider, Self: URLProvider
 {
     /// A default implementation.
     public var request: URLRequest?
@@ -25,7 +25,7 @@ extension Endpoint where Self: MethodProvider, Self: URLProvider
         }
 
         return url?.buildRequest(
-            method: method,
+            httpMethod: httpMethod,
             headerFields: (self as? HeaderFieldsProvider)?.headerFields,
             body: (self as? BodyProvider)?.body
         ) as URLRequest?

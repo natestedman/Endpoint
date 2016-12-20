@@ -34,10 +34,10 @@ public protocol RelativeURLStringProvider
 }
 
 /// A types that provides an HTTP method for a URL request.
-public protocol MethodProvider
+public protocol HTTPMethodProvider
 {
     /// The HTTP method of the URL.
-    var method: Method { get }
+    var httpMethod: HTTPMethod { get }
 }
 
 /// A type that provides query items for a URL request.
