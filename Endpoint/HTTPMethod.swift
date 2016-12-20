@@ -9,7 +9,7 @@
 // this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
 
 /// Enumerates the HTTP methods.
-public enum Method: String
+public enum HTTPMethod: String
 {
     /// `OPTIONS`.
     case options = "OPTIONS"
